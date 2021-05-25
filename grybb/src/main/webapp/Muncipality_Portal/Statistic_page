@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Statistics</title>
+    </head>
+    <body>
+        <h1>Statistics</h1>
+        <p>this graph shows the percentage of trees dying </p>
+
+        <div id="piechart"></div>
+
+    </body>
+</html>
+
+<style>
+    
+</style>
+
+
+<!-- JS for the google chart-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    
+    // Draw the chart and set the chart values
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+      ['health level', 'amount of trees'],
+      // these numbers need to be linked with the database
+      ['Healty', 9500],
+      ['In need of water', 350],
+      ['Dead', 150],
+    ]);
+    
+      // Optional; add a title and set the width and height of the chart
+      var options = {'title':'Trees health', 'width':550, 'height':400};
+    
+      // Display the chart inside the <div> element with id="piechart"
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    }
+    </script>
+
+    
