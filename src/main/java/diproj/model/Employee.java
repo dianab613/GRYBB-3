@@ -1,4 +1,4 @@
-package model;
+package diproj.model;
 
 import java.util.Date;
 
@@ -6,14 +6,16 @@ public class Employee extends Person{
     private String working_hours;
     private Date last_active;
     private String area;
+    private Person person;
+
 
     public Employee(){
     }
 
-    public Employee(String working_hours, Date last_active, String area){
-        setWorking_hours(working_hours);
-        setLast_active(last_active);
-        setArea(area);
+    public Employee(Person person){
+        setPerson(person);
+        setWorking_hours("NO");
+        setArea("NO");
     }
 
     public String getWorking_hours() {
@@ -38,5 +40,13 @@ public class Employee extends Person{
 
     public void setArea(String area) {
         this.area = area;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 }

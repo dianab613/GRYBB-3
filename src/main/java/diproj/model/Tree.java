@@ -1,4 +1,4 @@
-package model;
+package diproj.model;
 
 import java.util.Date;
 

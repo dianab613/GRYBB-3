@@ -1,4 +1,4 @@
-package model;
+package diproj.model;
 
 public class Company {
     private int cid;

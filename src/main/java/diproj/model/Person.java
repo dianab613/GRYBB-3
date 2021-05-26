@@ -1,4 +1,4 @@
-package model;
+package diproj.model;
 
 public class Person {
     private int pid;
