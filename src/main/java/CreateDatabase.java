@@ -19,7 +19,7 @@ public class CreateDatabase {
                     "PRIMARY KEY (tid), " +
                     "FOREIGN KEY (cid) REFERENCES company(cid)); ";
             String sql3 = "CREATE TABLE people (pid int, name varchar(100), telephone varchar(10), " +
-                    "email varchar(50), role varchar(50), " +
+                    "email varchar(50), password varchar(20), role varchar(50), " +
                     "PRIMARY KEY (pid)); ";
             String sql4 = "CREATE TABLE employee (pid int, working_hours varchar(50), last_active date, area varchar(50), " +
                     "CONSTRAINT pk_employee PRIMARY KEY (pid,area), "+
