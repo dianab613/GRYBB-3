@@ -1,0 +1,68 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+<head>
+	<link rel="stylesheet" href="municipality_portal.css">
+	<title> Municipality Portal </title>
+</head>
+<body>
+    <img src="logo.png" alt="Grybb Logo">
+    <div class="banner-text">
+         
+		<p style="color:#414042; font-size:170%; font-family:Tahoma, sans-serif;"><b><i>Municipality Portal</i></b></p>
+			
+		<ul>
+			<li><a class="activemenu" href="statistic-page.html">Statistics</a></li>
+			<li><a href="improvement_page.html">Improvements</a></li>
+			<li><a href="activeworkers_page.html">Active Field Workers</a></li>
+		</ul>
+			
+		<div class="slideshow-container" >
+			<div class="mySlides fade">
+				<img src="watering.jpg" style="width:100%; height:60%">
+ 			</div>
+
+			<div class="mySlides fade">
+				<img src="phoneapp.jpg" style="width:100%; height:60%">
+			</div>
+
+			<div class="mySlides fade">
+				<img src="water.jpg" style="width:100%; height:60%">
+			</div>
+
+		</div>
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
+
+			
+			
+    </div>
+    
+    </body>
+
+</html>
