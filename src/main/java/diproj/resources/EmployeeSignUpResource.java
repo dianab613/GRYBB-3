@@ -6,45 +6,44 @@ import javax.ws.rs.core.MediaType;
 import diproj.dao.Employees;
 import diproj.model.Employee;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Path("/signupform-employee")
 public class EmployeeSignUpResource {
-    private String email;
-    private String password;
     private Employee employee;
+    private Map<Integer,String> emps = new HashMap<>();
+    private int i = 0;
 
     public EmployeeSignUpResource(){
     }
 
-    public EmployeeSignUpResource(String email, String password){
+    public EmployeeSignUpResource(String fname, String lname, String uname, String psw){
         this.employee = new Employee();
-        employee.setEmail(email);
-        employee.setPassword(password);
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+        employee.setName(fname + " " + lname);
+        employee.setEmail(uname);
+        employee.setPassword(psw);
+        employee.setPid(this.i);
     }
 
 
-//    @POST
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    public void createEmployee(){
-//     not sure how to create an employee using just username and password
-//    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void createEmployee(String fname, String lname, String uname, String psw){
+        for(Map.Entry e : emps.entrySet()){
+            if(uname.equals(e.getValue())){
+                System.out.println("Username already taken. Please choose another.");
+            }
+            else{
+                i++;
+                emps.put(i, uname);
+               EmployeeSignUpResource em = new EmployeeSignUpResource(fname, lname, uname, psw);
+                Employees.instance.getModel().add(this.employee);
+            }
+        }
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

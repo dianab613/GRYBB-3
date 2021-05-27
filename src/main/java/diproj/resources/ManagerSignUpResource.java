@@ -4,34 +4,47 @@ package diproj.resources;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-import diproj.dao.Employees;
-import diproj.model.Employee;
 import diproj.model.Person;
 import diproj.dao.People;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Path("/signupform-manager")
 public class ManagerSignUpResource {
-    private String email;
-    private String password;
     private Person person;
+    private Map<Integer, String> ppl = new HashMap<>();
+    private int i = 0;
 
     private ManagerSignUpResource(){}
 
-    private ManagerSignUpResource(String email, String password){
+    private ManagerSignUpResource(String fname, String lname, String uname, String psw){
         this.person = new Person();
-        person.setEmail(email);
-        person.setPassword(password);
+        person.setName(fname + " " + lname);
+        person.setEmail(uname);
+        person.setPassword(psw);
+        person.setPid(this.i);
+        person.setRole("manager");
     }
 
 
-//    @POST
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    public void createManager(){
-//     not sure how to create an person using just username and password
-//    }
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void createManager(String fname, String lname, String uname, String psw){
+        for(Map.Entry e : ppl.entrySet()){
+            if(uname.equals(e.getValue())){
+                System.out.println("Username already taken. Please choose another.");
+            }
+            else{
+                i++;
+                ppl.put(i, uname);
+                ManagerSignUpResource em = new ManagerSignUpResource(fname, lname, uname, psw);
+                People.instance.getModel().add(this.person);
+            }
+        }
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
