@@ -1,6 +1,6 @@
 
 body{
-background-image: url(Images/bkgimg.jpg);
+background-image: url(../Images/bkgimg.jpg);
 background-position: center center;
 background-repeat: no-repeat;
 background-attachment: fixed;
@@ -44,7 +44,7 @@ text-align:center;
 background-color: rgba(225,225,225,0.3);
 border-radius: 15px;
 color: #fff;
-font-weight:bold;
+font-wight:bold;
 padding-bottom: 2%;
 }
 
@@ -54,7 +54,7 @@ padding-bottom: 2%;
 		text-align:center;
 		background-color: rgba(225,225,225,0.3);
 		color: #fff;
-		font-weight:bold;
+		font-wight:bold;
 		position:center center;
 		margin-right: 0%;
 		margin-left: 0%;
@@ -133,4 +133,90 @@ img{
 	width: 30%;
 	margin-left:35%;
 	margin-right:35%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:#ebebeb;
+}
+
+li {
+  float:left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: #414042;
+  text-align: center;
+  padding: 14px 99.4px;
+  text-decoration: none;
+  font-family: Tahoma, sans-serif;
+  font-size: 130%;
+}
+
+li a:hover:not(.active) {
+  background-color: #d1d1d1;
+}
+
+.activemenu {
+  background-color: #f15a29;
+}
+
+
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  margin-right: 41%;
+  margin-left:0%;
+  padding-top: 5%;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  margin-top: 0%;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
 }
