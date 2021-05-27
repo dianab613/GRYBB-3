@@ -10,7 +10,7 @@
 <div class="banner-text">
 	<p style="line-height:60px; text-align: center; font-size: 150%; color: #414042;  font-family: Tahoma, sans-serif;	">
 	<b> EMPLOYEE PORTAL </b></p>
-	<form action="/action_page.php" method="post">
+	<form action="./employeelogin" method="post">
 		<input type="text" placeholder="Enter Username" name="uname" required>
 		<br>
 		<br>
@@ -33,8 +33,15 @@
 		</script>
 	<br>
 	<br>
-	<button type="submit">Login</button>
+	<button type="submit" onclick = "validatePass()" >Login</button>
 	<br>
+		<script>
+			function validatePass(){
+				$.get('http://localhost/');
+
+
+			}
+		</script>
 	<br>
 	<p style="text-align: center; font-size: 85%; color:black; font-family: Tahoma, sans-serif;"> Not a member? </p>
 	<a href="signupform-employee.html"><p style="line-height:0%; text-align: center; font-size: 85%; font-family: Tahoma, sans-serif; ">
