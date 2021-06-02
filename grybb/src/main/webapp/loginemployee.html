@@ -10,8 +10,8 @@
 <div class="banner-text">
 	<p style="line-height:60px; text-align: center; font-size: 150%; color: #414042;  font-family: Tahoma, sans-serif;	">
 	<b> EMPLOYEE PORTAL </b></p>
-	<form action="./employeelogin" method="post">
-		<input type="text" placeholder="Enter Username" name="uname" required>
+	<form onsubmit="validatePass()" method="post">
+		<input id ="UserNameInput" type="text" placeholder="Enter Username" name="uname" required>
 		<br>
 		<br>
 		<input id="myInput" type="password" placeholder="Enter Password" name="psw" required>
@@ -23,7 +23,7 @@
 		
 		<script>
 			function showpass() {
-				var x = document.getElementById("myInput");
+				let x = document.getElementById("myInput");
 				if (x.type == "password") {
 					x.type = "text";
 				} else {
@@ -37,9 +37,23 @@
 	<br>
 		<script>
 			function validatePass(){
-				$.get('http://localhost/');
-
-
+				let httpr = new XMLHttpRequest();
+				httpr.onreadystatechange = function(){
+					if (this.readyState == 4 && this.status == 200){
+						alert(this.response);
+							if (this.response == "true")
+						window.location.replace("/")
+					}
+				};
+				httpr.open("POST", "/RESTlogin", true);
+				httpr.setRequestHeader("Content-type", "application/json");
+				let uname = document.getElementById("UserNameInput");
+				let pword = document.getElementById("myInput");
+				let JSONtext = {
+					"username" : uname,
+					"password" : pword
+				};
+				httpr.send(JSON.stringify(JSONtext))
 			}
 		</script>
 	<br>
