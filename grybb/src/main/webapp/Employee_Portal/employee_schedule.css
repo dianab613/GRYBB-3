@@ -1,6 +1,6 @@
 
 body{
-    background-image: url(../bkgimg.jpg);
+    background-image: url(../Images/bkgimg.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -61,70 +61,7 @@ body{
                 
         }
     }
-    
-    
-    /*manager button*/
-    .button1 {
-      border: 3px solid #414042;
-      color: white;
-      padding: 30px 32px;
-      text-align: center;
-      font-size: 135%;
-      margin-left: 5%;
-      margin-right: 5%;
-      width: 30%;
-      cursor: pointer;
-      border-radius: 25px;
-      background-color: #f15a29;
-      transition-duration: 0.4s;
-     font-family: Tahoma, sans-serif;
-    }
-    
-    /*the buttons on the same line(employee and municipality)*/
-    .group button {
-      margin-top: 7%;
-      display: block;
-      border: 3px solid #414042;
-      color:white;
-      padding: 30px 32px;
-      display: inline-block;
-      text-align: center;
-      font-size: 135%;
-      margin-left: 5%;
-      margin-right: 5%;
-      width: 36%;
-      cursor: pointer; 
-      border-radius: 25px;
-      display: inline-block;
-      background-color: #f15a29;
-      transition-duration: 0.4s;
-      font-family: Tahoma, sans-serif;
-    
-    }
-    
-    /*change colors hover button */
-    .button1:hover, .group button:hover {
-      background-color:#ff9261; /*coral*/
-      color: black;
-    }
-    
-    /*when the screen is less than 700px wide*/
-    @media only screen  and (max-width : 700px) {
-      .group button, .button1 {
-        float: none;
-        width: 80%;
-        text-align:center;
-      }
-    }
-    
-    @media only screen and (min-width : 768px) and (orientation : portrait) {
-        .group button, .button1 {
-        float: none;
-        width: 80%;
-        text-align:center;
-      }
-    }
-        
+   
         
     /*this is the logo*/
     img{
@@ -134,17 +71,22 @@ body{
         margin-left:35%;
         margin-right:35%;
     }
-
-    
-    th{
-        padding: 40px;
+	
+     table,th,td {
+		margin-left:20%;
+		margin-right:20%;
+		width:60%;
+        padding: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+		text-align:center;
+		font-family:Tahoma, sans-serif;
+		font-size: 115%;
+		color:#414042;
       }
-    td{
-        padding: 15px;
-    }
 
     .checkbox{
-        width: 200px;
+        width: 1000;
         color:#fff;
         margin: auto;
       }

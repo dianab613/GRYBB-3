@@ -2,24 +2,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 <head>
-    <link rel="stylesheet" href="..\welcomepagetest.css">
+    <link rel="stylesheet" href="statistic-page.css">
     <title> Statistics </title>
 </head>
 
-  <body>
-      <img src="../logo.png" alt="Grybb Logo">
-      <div class="banner-text">
-          <p style="font-family: Tahoma, sans-serif;"><i><b> Tree statistics </b></i></p>
-          <br>
+ <body>
+    <img src="../Images/logo.png" alt="Grybb Logo">
+    <div class="banner-text">
+        <p><i><b> Tree statistics </b></i></p>
+        <br>
 
-        <div class="piechart" id="piechart"></div>
-
-    </body>
-</html>
+    <div class="piechart" id="piechart"></div>
 
 <!-- JS for the google chart-->
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
+<script 
+	src="https://www.gstatic.com/charts/loader.js">
+</script>
+
+<script>
     // Load google charts
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
@@ -43,4 +43,5 @@
     }
     </script>
 
-    
+  </body>
+</html>
