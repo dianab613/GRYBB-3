@@ -5,24 +5,24 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Credentials {
 
-    private String name;
-    private String HashPass;
+    private String uname;
+    private String pword;
 
     public Credentials(){
 
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUname(String name) {
+        this.uname = name;
     }
-    public String getName() {
-        return name;
+    public String getUname() {
+        return uname;
     }
-    public String getHashPass() {
-        return HashPass;
+    public String getPword() {
+        return pword;
     }
-    public void setHashPass(String hashPass) {
-        HashPass = hashPass;
+    public void setPword(String hashPass) {
+        pword = hashPass;
     }
 
 

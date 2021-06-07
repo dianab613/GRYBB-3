@@ -10,7 +10,7 @@
 <div class="banner-text">
 	<p style="line-height:60px; text-align: center; font-size: 150%; color: #414042;  font-family: Tahoma, sans-serif;	">
 	<b> EMPLOYEE PORTAL </b></p>
-	<form action="/action_page.php" method="post">
+	<form target="useless" method="post">
 		<input type="text" placeholder="Enter Username" name="uname" required>
 		<br>
 		<br>
@@ -20,11 +20,11 @@
 		
 		<button class="btn showpsw" type="button" onclick="showpass()">Show Password</button>
 		<button class="btn forgotpsw" type="button" onclick="document.location= 'passwordrecovery-employee.html'" ><i><u>Forgot Password?</u></i></button>
-		
+		<iframe name="useless" style="display: none;"></iframe>
 		<script>
 			function showpass() {
 				let x = document.getElementById("myInput");
-				if (x.type == "password") {
+				if (x.type === "password") {
 					x.type = "text";
 				} else {
 					x.type = "password";
@@ -33,16 +33,16 @@
 		</script>
 	<br>
 	<br>
-	<button type="submit" onclick = "validatePass()" >Login</button>
+	<button type="submit" onsubmit="validatePass()">Login</button>
 	<br>
 		<script>
 			function validatePass(){
 				let httpr = new XMLHttpRequest();
 				httpr.onreadystatechange = function(){
-					if (this.readyState == 4 && this.status == 200){
+					if (this.readyState === 4 && this.status === 200){
 						alert(this.response);
-							if (this.response == "true")
-						window.location.replace("/")
+							if (this.response === "true")
+						window.location.replace("/employee_portal.html")
 					}
 				};
 				httpr.open("POST", "/RESTlogin", true);
@@ -58,8 +58,8 @@
 		</script>
 	<br>
 	<p style="text-align: center; font-size: 85%; color:black; font-family: Tahoma, sans-serif;"> Not a member? </p>
-	<p style="line-height:0%; text-align: center; font-size: 85%; font-family: Tahoma, sans-serif; ">
-	<a href="signupform-employee.html"><i><u> Create an account </u></i></p>
+	<a style="	line-height:0%; text-align: center; font-size: 85%; font-family: Tahoma, sans-serif; ">
+	<a href="signupform-employee.html"><i><u> Create an account </u></i></a>
 	<br style="line-height:2%;">
 	</form>
 </div>
