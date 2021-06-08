@@ -1,0 +1,199 @@
+
+body{
+background-image: url(bkgimg.jpg);
+background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+/* Set a background color that will be displayed
+while the background image is loading */
+background-color: #f2b98a;
+
+}
+
+
+
+p{
+line-height:60px;
+text-align: center; 
+font-size: 170%; 
+color: #414042; 
+font-family: Tahoma, sans-serif;
+}
+
+
+/* Header/logo Title */
+.header {
+  padding: 20%;
+  text-align: center;
+  margin-bottom:-2%;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 20%;
+}
+
+/*the box*/
+.banner-text{
+position:center center;
+margin-right: 30;
+margin-left: 30%;
+width: 40%;
+text-align:center;
+background-color: rgba(225,225,225,0.3);
+border-radius: 15px;
+color: #fff;
+font-wight:bold;
+padding-bottom: 0.05%;
+
+}
+	
+/*this is the logo*/
+img{
+	padding-top:15%;
+	opacity:100%;
+	width: 80%;
+	margin-left:10%;
+	margin-right:10%;
+	padding-bottom:25%;
+}
+.sidebar {
+  top:0%;
+  left:0%;
+  width: 20%;
+  background-color: rgba(255,255,255,0.5);
+  position: fixed;
+  height: 100%;
+  overflow: auto; 
+
+}
+
+.sidebar a {
+  display: block;
+  color: #414042;
+  padding: 8%;
+  text-decoration: none;
+  font-size:135%;
+  font-family:Tahoma, sans-serif;
+  text-align:center;
+  
+}
+ 
+.sidebar a.active {
+  background-color:  #f15a29;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color:#c4cbd5;
+  color: #414042;
+}
+
+
+div.content {
+  margin-left: 20%;
+  padding: 1px 16px;
+  height:100%;
+  position:relative;
+  text-align:left;
+    
+}
+
+@media screen and (max-width: 700px) {
+	.banner-text{
+
+		width:40%;
+		text-align:center;
+		background-color: rgba(225,225,225,0.3);
+		color: #fff;
+		font-wight:bold;
+		position:center center;
+		margin-left: 30%;
+		margin-right:30%;
+		font-size:60%;
+	}
+	
+   img{
+	padding-top:1%;
+	opacity:100%;
+	width:30%;
+	margin-left:35%;
+	margin-right:35%;
+	padding-bottom:5%;
+}
+  .sidebar {
+	top:0%;
+    left:0%;
+	background-color: rgba(255,255,255,0.3);
+    width: 100%;
+    height: auto;
+    position: relative;
+	margin-bottom:0%;
+  }
+  
+  
+  .sidebar a {
+	width:90%;
+	padding:1%;
+	text-decoration: none;
+	font-size:80%;
+	font-family:Tahoma, sans-serif;
+	text-align:center;
+    float: none;
+	margin-left:5%;
+	margin-right:5%;
+
+  }
+ 
+  div.content {
+	margin-left:0%;
+	margin-top:0%;
+	position:relative;
+	}
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #f15a29;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 40px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin-left:5%;
+  margin-right:5%;
+  margin-top:5%;
+  
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  font-family:  Tahoma, sans-serif;
+  text-align: left;
+  padding: 8px;
+  text-align:center;
+  color:#414042;
+}
+tr:nth-child(odd){
+	background-color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

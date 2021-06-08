@@ -1,0 +1,86 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+<head>
+	<link rel="stylesheet" href="manager_portal_statistics.css">
+	<title> Management Portal - Statistics </title>
+	
+</head>
+<body>
+	<div class="sidebar">
+		<img src="logo.png" alt="Grybb Logo">
+		<a class="active" href="manager_portal_statistics.html">Statistics</a>
+		<a href="manager_portal_employees.html">Employees</a>
+		<a href="loginportal.html">Logout</a>
+	</div>
+	
+	
+	<div class="content">
+		<div class="banner-text">
+			<h1 style="color:#414042; font-size: 180%; font-family: Tahoma, sans-serif; padding-top:3%;"><i>Statistics</i></h1>
+		</div>
+		
+		<div id="chartContainer" style="height: 50%; width: 80%; margin-left:10%; margin-right:10%; margin-top: 5%; margin-bottom:5%;"></div>
+			<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+		
+			<script>
+				window.onload = function chart1() {
+
+					var chart = new CanvasJS.Chart("chartContainer", {
+						animationEnabled: true,
+						theme: "light2",
+						title:{
+							text: "Smart Watering Progress"},
+						data: [{        
+							type: "line",
+							indexLabelFontSize: 16,
+							dataPoints: [
+		
+								//TO BE UPDATED WITH REAL VALUES FROM DATABASE
+		
+								{ y: 280},
+								{ y: 290},
+								{ y: 320},
+								{ y: 270, indexLabel: "\u2193 lowest",markerColor: "red", markerType: "cross" },
+								{ y: 330 },
+								{ y: 450 },
+								{ y: 470 },
+								{ y: 500 },
+								{ y: 520 },
+								{ y: 500 },
+								{ y: 530 },
+								{ y: 550 , indexLabel: "\u2191 highest",markerColor: "green", markerType: "triangle" }
+							]
+						}]
+					});
+					chart.render();
+				}
+			</script>
+		
+		
+		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+		<script>
+		
+			var mybutton = document.getElementById("myBtn");
+
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function() {scrollFunction()};
+			function scrollFunction() {
+				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+				} else {
+					mybutton.style.display = "none";
+				}
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
+		
+	</div>
+	
+ </body>
+</html>

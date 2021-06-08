@@ -1,0 +1,89 @@
+
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+<head>
+    <link rel="stylesheet" href="employee_portal.css">
+    <title> Tree Map </title>
+	<script src="https://kit.fontawesome.com/395457d636.js" crossorigin="anonymous"></script>
+	
+</head>
+
+<body>
+    <div class="sidebar">
+		<img src="logo.png" alt="Grybb Logo">
+		<a class="active" href="employee_portal_map.html">Tree Map</a>
+		<a href="employee_schedule.html">My Schedule</a>
+		<a href="loginportal.html">Logout</a>
+	</div>
+	
+	<div class="content">
+		<div class="floating-panel">
+			<strong style="font-size:120%; font-family:Tahoma, sans-serif;">From: </strong> 
+			<select class = "select" id="from" Changeloc="calcRoute();" onChange="this.size=0;" onmousedown="if(this.options.length>8){this.size=5;}"  onblur="this.size=0;">
+				<option class = "options" value="enschede, ov">Enschede</option>
+				<option class = "options" value="heekpark, enschede">Gerrit Jan van Heekpark</option>
+				<option class = "options" value="lochemsbleek, enschede">Park van Lochemsbleek</option>
+				<option class = "options" value="Oltmansstraat, enschede">Boerenkerkhof Park</option>
+				<option class = "options" value="Schreuer, enschede">Schreuer Playground</option>
+				<option class = "options" value="Sparta, enschede">Sparta Park Enschede</option>
+				<option class = "options" value="Trifora, enschede">Trifora Park</option>
+				<option class = "options" value="Blijdensteinpark, enschede">Blijdensteinpark</option>
+				<option class = "options" value="Wooldrikspark, enschede">Wooldrikspark</option>
+				<option class = "options" value="EVV Phoenix - Voetbalclub uit Enschede, enschede">Phoenix Park</option>
+				<option class = "options" value="Oosterbegraafplaats, enschede">Oosterbegraaf Park</option>
+				<option class = "options" value="ELTC Tennisvereniging, enschede">Volksparksingel</option>
+				<option class = "options" value="Cromhofpark, enschede">Cromhofpark</option>
+				<option class = "options" value="Varvik-Diekman, enschede">Varvik-Diekman Park</option>
+				<option class = "options" value="Zweringbeekpark, enschede">Zweringbeekpark</option>
+				<option class = "options" value="FC Suryoye, enschede">Wesselerbrink Noord-West FC </option>
+				<option class = "options" value="TKV Enschede, enschede">Wesselerbrink Noord-West TKV</option>
+				<option class = "options" value="TEZ Tennisvereniging Enschede-Zuid , enschede">Wesselerbrink Noord-West TEZ</option>
+				<option class = "options" value="VV Victoria'28, enschede">Wesselerbrink Zuid-West Victoria</option>
+				<option class = "options" value="Dragonheart parkeerplaats, enschede">Stroink Park Zuid</option>
+			</select> 
+			<strong style="font-size:120%; font-family:Tahoma, sans-serif">To: </strong> 
+			<select class = "select" id="to" Changeloc="calcRoute();" onChange="this.size=0;" onmousedown="if(this.options.length>8){this.size=5;}"  onblur="this.size=0;">
+				<option class = "options" value="enschede, ov">Enschede</option>
+				<option class = "options" value="heekpark, enschede">Gerrit Jan van Heekpark</option>
+				<option class = "options" value="lochemsbleek, enschede">Park van Lochemsbleek</option>
+				<option class = "options" value="Oltmansstraat, enschede">Boerenkerkhof Park</option>
+				<option class = "options" value="Schreuer, enschede">Schreuer Playground</option>
+				<option class = "options" value="Sparta, enschede">Sparta Park Enschede</option>
+				<option class = "options" value="Trifora, enschede">Trifora Park</option>
+				<option class = "options" value="Blijdensteinpark, enschede">Blijdensteinpark</option>
+				<option class = "options" value="Wooldrikspark, enschede">Wooldrikspark</option>
+				<option class = "options" value="EVV Phoenix - Voetbalclub uit Enschede, enschede">Phoenix Park</option>
+				<option class = "options" value="Oosterbegraafplaats, enschede">Oosterbegraaf Park</option>
+				<option class = "options" value="ELTC Tennisvereniging, enschede">Volksparksingel</option>
+				<option class = "options" value="Cromhofpark, enschede">Cromhofpark</option>
+				<option class = "options" value="Varvik-Diekman, enschede">Varvik-Diekman Park</option>
+				<option class = "options" value="Zweringbeekpark, enschede">Zweringbeekpark</option>
+				<option class = "options" value="FC Suryoye, enschede">Wesselerbrink Noord-West FC </option>
+				<option class = "options" value="TKV Enschede, enschede">Wesselerbrink Noord-West TKV</option>
+				<option class = "options" value="TEZ Tennisvereniging Enschede-Zuid , enschede">Wesselerbrink Noord-West TEZ</option>
+				<option class = "options" value="VV Victoria'28, enschede">Wesselerbrink Zuid-West Victoria</option>
+				<option class = "options" value="Wesselerbrinkpark, enschede">Wesselerbrinkpark Zuid-Oost</option>
+				<option class = "options" value="Dragonheart parkeerplaats, enschede">Stroink Park Zuid</option>
+				
+			</select>
+		</div>
+
+		<div id="map" ></div>
+
+
+		<script src="map.js"></script>
+		 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqbUOZvlxy0Ypoc7VQrYBQKfuNyvm3_AM&libraries=places&callback=initMap">
+		</script>
+	
+
+	</div>
+
+	
+	
+
+	
+	
+</body>
+</html>

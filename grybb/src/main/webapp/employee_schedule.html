@@ -7,12 +7,19 @@
 </head>
 
   <body>
-    <img src="logo.png" alt="Grybb Logo">
-    <div class="banner-text">
-	<p style="font-family: Tahoma, sans-serif;"><b> My Schedule</b></p>
+   <div class="sidebar">
+	<a href="employee_portal_map.html">
+		<img src="logo.png" alt="Grybb Logo">
+	</a>
+		<a href="employee_portal_map.html">Tree Map</a>
+		<a class="active" href="employee_schedule.html">My Schedule</a>
+		<a href="loginportal.html">Logout</a>
+   </div>
+	<div class="banner-text">
+			<p style="font-family: Tahoma, sans-serif;"><b> My Schedule</b></p>
 		<br>
 
-       <!-- hours to be linked with database, checkbox also-->
+       <!-- hours to be linked with database-->
         <table>
             <tr>
               <th>Day</th>
@@ -64,6 +71,7 @@
                     <input type="checkbox">
               </tr>
           </table>
+	</div>
 
     </body>
 </html>
