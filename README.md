@@ -9,6 +9,6 @@ image: logo.png<br><br><br>
 ## !!!
 Everything must be in the same folder, they are all connected!
 
-## Loggin in
+## Logging in
 For the username field, the email address should contain @management.com/ @employee.com /@municipality.com<br>
 The password must contain at least 6 characters, one capital letter and a number
