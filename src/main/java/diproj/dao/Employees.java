@@ -8,6 +8,7 @@ import java.util.List;
 public enum Employees {
     instance;
 
+
     private List<Employee> emp = new ArrayList<>();
 
     private Employees(){}
@@ -27,8 +28,8 @@ public enum Employees {
                 return "Account already created using this email.";
             }
             if(!found){
-               // Employee e = new Employee(People.instance.getModel().get(email));
-                //emp.add(e);
+                Employee e = new Employee(People.instance.getModel().get(i));
+                emp.add(e);
             }
         }
         return "Employee account created successfully.";

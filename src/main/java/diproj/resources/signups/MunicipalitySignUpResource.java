@@ -1,4 +1,4 @@
-package diproj.resources;
+package diproj.resources.signups;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -34,7 +34,7 @@ public class MunicipalitySignUpResource {
     public void createManager(String fname, String lname, String uname, String psw){
         for(Map.Entry e : ppl.entrySet()){
             if(uname.equals(e.getValue())){
-                System.out.println("Username already taken. Please choose another.");
+//                System.out.println("Username already taken. Please choose another.");
             }
             else{
                 i++;
@@ -46,7 +46,7 @@ public class MunicipalitySignUpResource {
     }
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public List<Person> getMunicipality(){
         List<Person> municipality = new ArrayList<>();
         List<Person> p = People.instance.getModel();

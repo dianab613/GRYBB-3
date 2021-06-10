@@ -11,13 +11,13 @@ public class Person {
     public Person(){
     }
 
-    public Person(int pid, String name, String telephone, String email, String password, String role){
+    public Person(int pid, String name, String email, String password, String role){
         setPid(pid);
         setName(name);
-        setTelephone(telephone);
         setEmail(email);
         setPassword(password);
         setRole(role);
+        setTelephone(null);
     }
 
     public int getPid() {

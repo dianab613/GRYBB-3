@@ -1,4 +1,4 @@
-package diproj.resources;
+package diproj.resources.signups;
 
 
 import javax.ws.rs.*;
@@ -35,7 +35,7 @@ public class ManagerSignUpResource {
     public void createManager(String fname, String lname, String uname, String psw){
         for(Map.Entry e : ppl.entrySet()){
             if(uname.equals(e.getValue())){
-                System.out.println("Username already taken. Please choose another.");
+//                System.out.println("Username already taken. Please choose another.");
             }
             else{
                 i++;
