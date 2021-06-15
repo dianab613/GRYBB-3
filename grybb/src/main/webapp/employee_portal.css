@@ -1,0 +1,258 @@
+
+body{
+background-image: url(bkgimg.jpg);
+background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+/* Set a background color that will be displayed
+while the background image is loading */
+background-color: #f2b98a;
+
+}
+
+
+
+p{
+line-height:60px;
+text-align: center; 
+font-size: 170%; 
+color: #414042; 
+font-family: Tahoma, sans-serif;
+}
+
+
+/* Header/logo Title */
+.header {
+  padding: 20%;
+  text-align: center;
+  margin-bottom:-2%;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 20%;
+}
+
+/*the box*/
+.banner-text{
+position:center center;
+margin-right: 12.5;
+margin-left: 12.5%;
+width: 75%;
+text-align:center;
+background-color: rgba(225,225,225,0.3);
+border-radius: 15px;
+color: #fff;
+font-wight:bold;
+padding-bottom: 2%;
+}
+
+/*this is the logo*/
+img{
+	padding-top:15%;
+	opacity:100%;
+	width: 80%;
+	margin-left:10%;
+	margin-right:10%;
+	padding-bottom:25%;
+}
+
+
+
+.sidebar {
+  top:0%;
+  left:0%;
+  width: 20%;
+  background-color: rgba(255,255,255,0.5);
+  position: fixed;
+  height: 100%;
+  overflow: auto; 
+
+}
+
+.sidebar a {
+  display: block;
+  color: #414042;
+  padding: 8%;
+  text-decoration: none;
+  font-size:135%;
+  font-family:Tahoma, sans-serif;
+  text-align:center;
+  
+}
+ 
+.sidebar a.active {
+  background-color:  #f15a29;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color:#c4cbd5;
+  color: #414042;
+}
+
+
+div.content {
+  margin-left: 20%;
+  padding: 1px 16px;
+  height:100%;
+  position:relative;
+  text-align:left;
+    
+}
+
+@media screen and (max-width: 700px) {
+	.banner-text{
+
+		width:40%;
+		text-align:center;
+		background-color: rgba(225,225,225,0.3);
+		color: #fff;
+		font-wight:bold;
+		position:center center;
+		margin-left: 30%;
+		margin-right:30%;
+		font-size:60%;
+	}
+	
+   img{
+	padding-top:1%;
+	opacity:100%;
+	width:30%;
+	margin-left:35%;
+	margin-right:35%;
+	padding-bottom:5%;
+}
+  .sidebar {
+	top:0%;
+    left:0%;
+	background-color: rgba(255,255,255,0.3);
+    width: 100%;
+    height: auto;
+    position: relative;
+	margin-bottom:0%;
+  }
+  
+  
+  .sidebar a {
+	width:90%;
+	padding:1%;
+	text-decoration: none;
+	font-size:80%;
+	font-family:Tahoma, sans-serif;
+	text-align:center;
+    float: none;
+	margin-left:5%;
+	margin-right:5%;
+
+  }
+ 
+  div.content {
+	margin-left:0%;
+	margin-top:0%;
+	position:relative;
+	}
+}
+
+
+
+/*map*/
+#map {
+  width: 95%;
+  height: 100%;
+  margin-top:5%;
+  margin-left:2.5%;
+  margin-right:2.5%;
+}
+
+
+
+#mode {
+  color: black;
+}
+
+.form-inline {  
+  padding-top: 4%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding-left:3%;
+  width:80%;
+}
+
+.form-inline label{
+	margin-right:-8%;
+}
+
+.form-inline input {
+  font-family: Tahoma, sans-serif;	
+  padding: 2%;
+  border: 1px solid #ccc;
+  width: 70%;
+  font-size: 150%;
+  text-align:center;
+  border-radius:15px;
+  display:block;
+}
+
+.form-inline button {
+	background-color:#f15a29;
+	width:16%;
+	color:white;
+	border:none;
+	padding:1.5%;
+	text-align:center;
+	margin-left:1%;
+	font-family:Tahoma, sans-serif;
+	font-size:100%;
+	margin-top:2%
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}
+
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+  
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.floating-panel {
+        position: center center;
+        margin-top:5%;
+        margin-left: 5%;
+        margin-right:5%;
+        width:90%;
+        z-index: 5;
+        background-color: TRANSPARENT;
+        text-align: center;
+        font-family: Tahoma, sans-serif;
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      
+ .select{
+ 	margin-left: 27.5%;
+ 	margin-right:27.5%;
+ 	width: 45%;
+ 	font-family: Tahoma, sans-serif;
+ 	font-size: 90%;
+ 	padding:1.5%;
+ 	font-size:90%;
+ 	display:inline-table;
+ }
+ 
+ .options{
+ font-size:120%;
+ font-family:Tahoma, sans-serif;
+ text-align:center;
+ size:5;
+ 	
+ }

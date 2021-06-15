@@ -1,0 +1,56 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+<head>
+	<link rel="stylesheet" href="manager_portal_employees.css">
+	<title> Management Portal - Employees</title>
+</head>
+<body>
+	<div class="sidebar">
+		<img src="logo.png" alt="Grybb Logo">
+		<a href="manager_portal_statistics.html">Statistics</a>
+		<a class="active" href="manager_portal_employees.html">Employees</a>
+		<a href="loginportal.html">Logout</a>
+	</div>
+	
+	
+	<div class="content">
+	<div class="banner-text">
+		<h1 style="color:#414042; font-size: 180%; font-family: Tahoma, sans-serif; padding-top:2.5%;"><i>Employees</i></h1>
+	</div>
+	
+	<table>
+		<tr>
+			<th style="font-size:120%;"><b>Name</b></th>
+			<th style="font-size:120%;"><b>Weekday Hours</b></th>
+			<th style="font-size:120%;"><b>Weekend Hours</b></th>
+		</tr>
+	
+	<!--CTRL + SHIFT + K to remove comment -->
+	
+		<!-- <?php -->
+			<!-- $conn = mysqli_connect("server_name", "username", "password", "database_name"); -->
+			<!-- if($conn -> connect_error){ -->
+				<!-- die("Connection failed:". $conn-> connect_error); -->
+			<!-- } -->
+		
+			<!-- $sql = "SELECT name, weekday_hours, weekend_hours from table_employees"; -->
+			<!-- $result = $conn-> query($sql); -->
+		
+			<!-- if($result-> num_rows >0) { -->
+				<!-- while($row = $result->fetch_assoc()){ -->
+					<!-- echo "<tr><td>".$row["name"]."</td><td>".$row["weekday_hours"]."</td><td>".$row["weekend_hours"]."</td></tr>"; -->
+				<!-- } -->
+				<!-- echo "</table>"; -->
+			<!-- } -->
+			<!-- else { -->
+				<!-- echo "0 result"; -->
+			<!-- } -->
+		<!-- ?> -->
+	
+	</table>
+	
+	</div>
+ </body>
+
+</html>

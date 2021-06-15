@@ -1,0 +1,173 @@
+
+body{
+    background-image: url(bkgimg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /* Set a background color that will be displayed
+    while the background image is loading */
+    background-color: #f2b98a;
+    
+    }
+    
+    
+    
+    p{
+    line-height:60px;
+    text-align: center; 
+    font-size: 170%; 
+    color: #414042; 
+    font-family: Tahoma, sans-serif;
+    }
+    
+    
+    /* Header/logo Title */
+    .header {
+      padding: 20%;
+      text-align: center;
+      margin-bottom:-2%;
+    }
+    
+    /* Increase the font size of the heading */
+    .header h1 {
+      font-size: 20%;
+    }
+    
+    /*the box*/
+    .banner-text{
+    position:center center;
+    margin-right: 5;
+    margin-left: 25%;
+    width: 70%;
+    text-align:center;
+    background-color: rgba(225,225,225,0.3);
+    border-radius: 15px;
+    color: #fff;
+    font-weight:bold;
+    padding-bottom: 2%;
+	margin-top:3%;
+	margin-bottom:3%;
+    }
+    
+    @media screen and (max-width: 700px) {
+        .banner-text{
+            width:100%;
+            text-align:center;
+            background-color: rgba(225,225,225,0.3);
+            color: #fff;
+            font-weight:bold;
+            position:center center;
+            margin-right: 0%;
+            margin-left: 0%;
+        }
+	}
+   
+
+	img{
+	padding-top:15%;
+	opacity:100%;
+	width: 80%;
+	margin-left:10%;
+	margin-right:10%;
+	padding-bottom:25%;
+}
+
+	
+    table,th,td {
+		margin-left:20%;
+		margin-right:20%;
+		width:60%;
+        padding: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+		text-align:center;
+		font-family:Tahoma, sans-serif;
+		font-size: 115%;
+		color:#414042;
+    }
+
+    .checkbox{
+        width: 1000;
+        color:#fff;
+        margin: auto;
+      }
+
+      input{
+        margin: auto; 
+        /*setting margin to auto of the cheeckbox*/
+        display: flex;/*Flex box property*/
+    }
+    
+	.sidebar {
+  top:0%;
+  left:0%;
+  width: 20%;
+  background-color: rgba(255,255,255,0.5);
+  position: fixed;
+  height: 100%;
+  overflow: auto; 
+
+}
+
+.sidebar a {
+  display: block;
+  color: #414042;
+  padding: 8%;
+  text-decoration: none;
+  font-size:135%;
+  font-family:Tahoma, sans-serif;
+  text-align:center;
+  
+}
+ 
+.sidebar a.active {
+  background-color:  #f15a29;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color:#c4cbd5;
+  color: #414042;
+}
+@media screen and (max-width: 700px) {
+	
+   img{
+	padding-top:1%;
+	opacity:100%;
+	width:30%;
+	margin-left:35%;
+	margin-right:35%;
+	padding-bottom:5%;
+}
+  .sidebar {
+	top:0%;
+    left:0%;
+	background-color: rgba(255,255,255,0.3);
+    width: 100%;
+    height: auto;
+    position: relative;
+	margin-bottom:0%;
+  }
+  
+  
+  .sidebar a {
+	width:90%;
+	padding:1%;
+	text-decoration: none;
+	font-size:80%;
+	font-family:Tahoma, sans-serif;
+	text-align:center;
+    float: none;
+	margin-left:5%;
+	margin-right:5%;
+
+  }
+ 
+  div.content {
+	margin-left:0%;
+	margin-top:0%;
+	position:relative;
+	}
+}
+
