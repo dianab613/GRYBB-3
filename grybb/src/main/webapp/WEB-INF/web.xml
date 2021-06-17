@@ -4,35 +4,18 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+  <display-name>grybb</display-name>
+   <welcome-file-list>
+    <welcome-file>loginportal.html</welcome-file>
+    <welcome-file>login.css</welcome-file>
+       <welcome-file>index.html</welcome-file>
+       <welcome-file>index.htm</welcome-file>
+       <welcome-file>index.jsp</welcome-file>
+       <welcome-file>default.html</welcome-file>
+       <welcome-file>default.htm</welcome-file>
+       <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
 
-    <display-name>di.nl.utwente.di.bookQuote</display-name>
-
-    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.htm</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
-        <welcome-file>default.html</welcome-file>
-        <welcome-file>default.htm</welcome-file>
-        <welcome-file>default.jsp</welcome-file>
-    </welcome-file-list>
-    <servlet>
-        <description>Login Servlet</description>
-        <display-name>Login</display-name>
-        <servlet-name>Login</servlet-name>
-        <servlet-class>main.java.Login</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/java.Login</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>employeelogin</servlet-name>
-        <servlet-class>main.java.EmployeeLogin</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>employeelogin</servlet-name>
-        <url-pattern>/employeelogin</url-pattern>
-    </servlet-mapping>
     <servlet>
         <servlet-name>javax.ws.rs.core.Application</servlet-name>
     </servlet>
