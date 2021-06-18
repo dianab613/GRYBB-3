@@ -1,10 +1,4 @@
-package main.java;
-
 import java.sql.*;
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
 
 public class Login {
     int role;

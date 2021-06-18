@@ -1,9 +1,6 @@
-package main.java;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.awt.*;
 
 @Path("/RESTlogin")
 @XmlRootElement
