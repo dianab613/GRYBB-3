@@ -11,7 +11,7 @@
 	<p style="line-height:60px; text-align: center; font-size: 150%; color: #414042;  font-family: Tahoma, sans-serif;	">
 	<b> LOGIN </b></p>
 	<form method="post">
-		<input type="text" placeholder="Enter Username" id="uname" required>
+		<input type="text" placeholder="Enter Username" id="loginuname" required>
 		<br>
 		<br>
 		<input id="myInput" type="password" placeholder="Enter Password" name="psw" required>
@@ -35,7 +35,7 @@
 		<script>
 			function validate(ev) {
 				ev.preventDefault();
-				var username = document.getElementById("uname").value;
+				var username = document.getElementById("loginuname").value;
 				var password = document.getElementById("myInput").value;
 				var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
 				if ( username.match("@municipality.com") && password.match(passw)){
