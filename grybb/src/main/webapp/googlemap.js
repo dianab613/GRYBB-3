@@ -59,7 +59,7 @@ function initMap() {
 		const infowindow = new google.maps.InfoWindow({
 			content: "<p> I'm at "+ marker.waterlvl+ "% water level</p>",
 			maxWidth: 300,
-		});
+		}); 
 		
 		
 		marker.addListener('click', function() {
