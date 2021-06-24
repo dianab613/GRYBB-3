@@ -1,13 +1,9 @@
 import java.sql.*;
 
 public class Login {
-    int role;
 
-    public Login(int role) {
-        // 1 = field worker
-        // 2 = manager
-        // 3 = municipality officer
-        this.role = role;
+    public Login() {
+
     }
 
     public boolean validateLogin(String username, String password) {
@@ -49,12 +45,20 @@ public class Login {
 
 
             if (rs1.next()) {
-                return 0;
+                String role = rs1.getString(1);
+                switch (role){
+                    case "Field Engineer":
+                        return 1;
+                    case "Manager":
+                        return 2;
+                    case "Municipality":
+                        return 3;
+                }
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
 
-        return 1;
+        return 0;
     }
 }
