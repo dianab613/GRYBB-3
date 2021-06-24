@@ -1,4 +1,4 @@
-package main.java;
+package grybb.src.main.java;
 
 import javax.swing.plaf.nimbus.State;
 import java.sql.*;

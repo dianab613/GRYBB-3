@@ -1,4 +1,4 @@
-package main.java;
+package grybb.src.main.java;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

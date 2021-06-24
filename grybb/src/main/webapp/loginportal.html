@@ -39,20 +39,20 @@
 				var password = document.getElementById("myInput").value;
 				var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
 				if ( username.match("@municipality.com") && password.match(passw)){
-					window.location = "municipality_portal.html"; 
+					window.location = "municipality_portal.html";
 					return true;
 				} else if(username.match("@management.com")&& password.match(passw)){
-					window.location = "manager_portal_statistics.html"; 
+					window.location = "manager_portal_statistics.html";
 					return true;
 				} else if(username.match("@employee.com")&& password.match(passw)){
 					window.location = "employee_portal_map.html";
 					return true;
-				} 
-				
-			
+				}
+
+
 				if ((!username.match("@municipality.com")&& password.match(passw)) || (!username.match("@management.com")&& password.match(passw)) || (!username.match("@employee.com")&& password.match(passw))){
 					window.alert("The email address is incorrect\nPlease try again!");
-					return false;					
+					return false;
 				} else if ((username.match("@municipality.com")&& !password.match(passw)) || (username.match("@management.com")&& !password.match(passw)) || (username.match("@employee.com")&& !password.match(passw)) ){
 					window.alert("The password is incorrect!\nPlease try again!");
 					return false;
