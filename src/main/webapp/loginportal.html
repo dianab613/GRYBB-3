@@ -24,7 +24,7 @@
 
         <script>
             function showpass() {
-                var x = document.getElementById("myInput");
+                let x = document.getElementById("myInput");
                 if (x.type == "password") {
                     x.type = " text";
                 } else {
@@ -37,7 +37,8 @@
                 let httpr = new XMLHttpRequest();
                 httpr.onreadystatechange = function () {
                     if (this.readyState === 4 && this.status === 200) {
-                        let body = JSON.parse(this.response)
+                        let body = JSON.parse(this.response);
+                        document.cookie = "session_id = " + body.token;
                         if (body.role === 1)
                             window.location.replace("/employee_portal_map.html")
                         else if (body.role === 2)

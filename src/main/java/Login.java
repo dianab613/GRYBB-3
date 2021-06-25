@@ -10,18 +10,20 @@ public class Login {
         String host = "bronto.ewi.utwente.nl";
         String dbName = "dab_di20212b_224";
         String url = "jdbc:postgresql://" + host + ":5432/" + dbName + "?currentSchema=grybb";
+        Hash hash = new Hash();
         try {
             Class.forName("org.postgresql.Driver");
             Connection connection = DriverManager.getConnection(url, dbName, "sH9CxfLuJtu60On2");
-            PreparedStatement statement = connection.prepareStatement(Queries.query3);
+            PreparedStatement statement = connection.prepareStatement(Queries.query1);
             statement.setString(1, username);
-            statement.setString(2, password);
 
             ResultSet rs1 = statement.executeQuery();
 
-
             if (rs1.next()) {
-                return true;
+                String userpass = rs1.getString(1);
+                if (hash.matchPass(password, userpass)) {
+                    return true;
+                }
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -29,7 +31,7 @@ public class Login {
         return false;
     }
 
-    public int getRole(String username, String password) {
+    public int getRole(String username) {
         String host = "bronto.ewi.utwente.nl";
         String dbName = "dab_di20212b_224";
         String url = "jdbc:postgresql://" + host + ":5432/" + dbName + "?currentSchema=grybb";
@@ -39,7 +41,6 @@ public class Login {
             Connection connection = DriverManager.getConnection(url, dbName, "sH9CxfLuJtu60On2");
             PreparedStatement statement = connection.prepareStatement(Queries.query3);
             statement.setString(1, username);
-            statement.setString(2, password);
 
             ResultSet rs1 = statement.executeQuery();
 

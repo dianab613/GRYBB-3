@@ -1,6 +1,6 @@
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.xml.bind.annotation.XmlRootElement;
+import java.util.UUID;
 
 @Path("/account")
 public class LoginREST {
@@ -13,10 +13,11 @@ public class LoginREST {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Session myLoginREST(Credentials credentials) {
-        System.out.println(credentials.getUsername()+" "+ credentials.getPassword());
         Login log = new Login();
         if (log.validateLogin(credentials.getUsername(), credentials.getPassword())) {
-            return new Session("token", log.getRole(credentials.getUsername(), credentials.getPassword()));
+            String uuid = UUID.randomUUID().toString();
+            Session userSession = new Session(uuid, log.getRole(credentials.getUsername()));
+            return userSession;
         }
         else {
             return new Session("token", -1);
