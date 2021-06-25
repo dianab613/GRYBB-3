@@ -19,6 +19,7 @@ public class EmployeePortalResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    @Path("/details")
     public List<Tree> filterTrees(String filter){
         List<Tree> trees = new ArrayList<>();
         String host = "bronto.ewi.utwente.nl";

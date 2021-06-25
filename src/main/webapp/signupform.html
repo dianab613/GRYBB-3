@@ -32,45 +32,45 @@
         }
       }
 
-      // function createAcc() {
-      //   alert("1");
-      //   let xmlhttpPost = new XMLHttpRequest();
-      //   xmlhttpPost.onreadystatechange = function () {
-      //
-      //     if (this.readyState === 4 && this.status === 200) {
-      //       // if (this.response === true) {
-      //       alert("2");
-      //       window.location.replace("/loginportal.html")
-      //       //  }
-      //     }
-      //   }
-      //   alert("3");
-      //   xmlhttpPost.open("POST", "/rest/signupform/add", true);
-      //   xmlhttpPost.setRequestHeader("Content-type", "application/json");
-      //   alert("4");
-      //   let uname = document.getElementById("uname").value;
-      //   let fname = document.getElementById("fname").value;
-      //   let lname = document.getElementById("lname").value;
-      //   let name = fname + " " + lname;
-      //   let psw = document.getElementById("psw").value;
-      //  // var role;
-      //   alert("5");
-      //   // if (uname.contains("employee")) {
-      //   //   role = "Field Engineer";
-      //   // } else if (uname.contains("municipality")){
-      //   //   role = "Municipality";
-      //   // } else if(uname.contains("manager")){
-      //   //   role = "Manager";
-      //   //   }
-      //     let jsonText = {
-      //       "name" : name,
-      //       "uname" : uname,
-      //       "psw" : psw,
-      //       "role" : "Field Engineer"
-      //     }
-      //   alert(jsonText);
-      //     xmlhttpPost.send(JSON.stringify(jsonText));
-      // }
+      function createAcc() {
+        alert("1");
+        let xmlhttpPost = new XMLHttpRequest();
+        xmlhttpPost.onreadystatechange = function () {
+
+          if (this.readyState === 4 && this.status === 200) {
+             if (this.response === true) {
+            alert("2");
+            window.location.replace("/loginportal.html")
+              }
+          }
+        }
+        alert("3");
+        xmlhttpPost.open("POST", "/rest/signupform/add", true);
+        xmlhttpPost.setRequestHeader("Content-type", "application/json");
+        alert("4");
+        let uname = document.getElementsByName("uname");
+        let fname = document.getElementsByName("fname");
+        let lname = document.getElementsByName("lname");
+        let name = fname[0].value + " " + lname[0].value;
+        let psw = document.getElementsByName("psw");
+       // var role;
+        alert("5");
+        // if (uname.values().contains("employee")) {
+        //   role = "Field Engineer";
+        // } else if (uname.contains("municipality")){
+        //   role = "Municipality";
+        // } else if(uname.contains("manager")){
+        //   role = "Manager";
+        //   }
+          let jsonText = {
+            "name" : name,
+            "uname" : uname[0].value,
+            "psw" : psw[0].value,
+            "role" : "Field Engineer"
+          }
+        alert(jsonText);
+          xmlhttpPost.send(JSON.stringify(jsonText));
+      }
     </script>
     <br>
     <br>
