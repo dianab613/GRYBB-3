@@ -1,6 +1,4 @@
-package diproj.dao;
-
-import diproj.model.Employee;
+package diproj.signups;
 
 import java.util.ArrayList;
 import java.util.List;

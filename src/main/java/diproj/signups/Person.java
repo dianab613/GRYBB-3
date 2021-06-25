@@ -1,4 +1,4 @@
-package diproj.model;
+package diproj.signups;
 
 public class Person {
     private int pid;

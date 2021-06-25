@@ -1,6 +1,4 @@
-package diproj.dao;
-
-import diproj.model.Person;
+package diproj.signups;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package diproj.model;
+package diproj.signups;
 
 import java.util.Date;
 
