@@ -53,20 +53,20 @@
         let lname = document.getElementsByName("lname");
         let name = fname[0].value + " " + lname[0].value;
         let psw = document.getElementsByName("psw");
-       // var role;
+        let role;
         alert("5");
-        // if (uname.values().contains("employee")) {
-        //   role = "Field Engineer";
-        // } else if (uname.contains("municipality")){
-        //   role = "Municipality";
-        // } else if(uname.contains("manager")){
-        //   role = "Manager";
-        //   }
+        if (uname.values().contains("@employee.com")) {
+           role = "Field Engineer";
+        } else if (uname.contains("@municipality.com")){
+          role = "Municipality";
+        } else if(uname.contains("@manager.com")){
+         role = "Manager";
+         }
           let jsonText = {
             "name" : name,
             "uname" : uname[0].value,
             "psw" : psw[0].value,
-            "role" : "Field Engineer"
+            "role" : role
           }
         alert(jsonText);
           xmlhttpPost.send(JSON.stringify(jsonText));
