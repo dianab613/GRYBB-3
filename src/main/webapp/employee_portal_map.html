@@ -1,0 +1,177 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+<head>
+    <link rel="stylesheet" href="employee_portal.css">
+    <title> Tree Map </title>
+    <script src="https://kit.fontawesome.com/395457d636.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<div class="sidebar">
+    <img src="logo.png" alt="Grybb Logo">
+    <a class="active" href="employee_portal_map.html">Tree Map</a>
+    <a href="employee_schedule.html">My Schedule</a>
+    <a href="loginportal.html">Logout</a>
+</div>
+
+<div class="content">
+    <div class="floating-panel">
+        <strong style="font-size:120%; font-family:Tahoma, sans-serif;">From: </strong>
+        <select class = "select" id="from" onChange="changeloc();" onClick="if(this.options.length >5 ){this.size=3}"  onblur="this.size=0;">
+            <option class = "options" value="enschede, ov">Enschede</option>
+            <option class = "options" value="heekpark, enschede">Gerrit Jan van Heekpark</option>
+            <option class = "options" value="lochemsbleek, enschede">Park van Lochemsbleek</option>
+            <option class = "options" value="Oltmansstraat, enschede">Boerenkerkhof Park</option>
+            <option class = "options" value="Schreuer, enschede">Schreuer Playground</option>
+            <option class = "options" value="Sparta, enschede">Sparta Park Enschede</option>
+            <option class = "options" value="Trifora, enschede">Trifora Park</option>
+            <option class = "options" value="Blijdensteinpark, enschede">Blijdensteinpark</option>
+            <option class = "options" value="Wooldrikspark, enschede">Wooldrikspark</option>
+            <option class = "options" value="EVV Phoenix - Voetbalclub uit Enschede, enschede">Phoenix Park</option>
+            <option class = "options" value="Oosterbegraafplaats, enschede">Oosterbegraaf Park</option>
+            <option class = "options" value="ELTC Tennisvereniging, enschede">Volksparksingel</option>
+            <option class = "options" value="Cromhofpark, enschede">Cromhofpark</option>
+            <option class = "options" value="Varvik-Diekman, enschede">Varvik-Diekman Park</option>
+            <option class = "options" value="Zweringbeekpark, enschede">Zweringbeekpark</option>
+            <option class = "options" value="FC Suryoye, enschede">Wesselerbrink Noord-West FC </option>
+            <option class = "options" value="TKV Enschede, enschede">Wesselerbrink Noord-West TKV</option>
+            <option class = "options" value="TEZ Tennisvereniging Enschede-Zuid , enschede">Wesselerbrink Noord-West TEZ</option>
+            <option class = "options" value="VV Victoria'28, enschede">Wesselerbrink Zuid-West Victoria</option>
+            <option class = "options" value="Dragonheart parkeerplaats, enschede">Stroink Park Zuid</option>
+        </select>
+
+
+        <strong style="font-size:120%; font-family:Tahoma, sans-serif">To: </strong>
+        <select class = "select" id="to" onChange="calcRoute();" onChange="this.size=0;" onmousedown="if(this.options.length>5){this.size=3;}"  onblur="this.size=0;">
+            <option class = "options" value="enschede, ov">Enschede</option>
+            <option class = "options" value="heekpark, enschede">Gerrit Jan van Heekpark</option>
+            <option class = "options" value="lochemsbleek, enschede">Park van Lochemsbleek</option>
+            <option class = "options" value="Oltmansstraat, enschede">Boerenkerkhof Park</option>
+            <option class = "options" value="Schreuer, enschede">Schreuer Playground</option>
+            <option class = "options" value="Sparta, enschede">Sparta Park Enschede</option>
+            <option class = "options" value="Trifora, enschede">Trifora Park</option>
+            <option class = "options" value="Blijdensteinpark, enschede">Blijdensteinpark</option>
+            <option class = "options" value="Wooldrikspark, enschede">Wooldrikspark</option>
+            <option class = "options" value="EVV Phoenix - Voetbalclub uit Enschede, enschede">Phoenix Park</option>
+            <option class = "options" value="Oosterbegraafplaats, enschede">Oosterbegraaf Park</option>
+            <option class = "options" value="ELTC Tennisvereniging, enschede">Volksparksingel</option>
+            <option class = "options" value="Cromhofpark, enschede">Cromhofpark</option>
+            <option class = "options" value="Varvik-Diekman, enschede">Varvik-Diekman Park</option>
+            <option class = "options" value="Zweringbeekpark, enschede">Zweringbeekpark</option>
+            <option class = "options" value="FC Suryoye, enschede">Wesselerbrink Noord-West FC </option>
+            <option class = "options" value="TKV Enschede, enschede">Wesselerbrink Noord-West TKV</option>
+            <option class = "options" value="TEZ Tennisvereniging Enschede-Zuid , enschede">Wesselerbrink Noord-West TEZ</option>
+            <option class = "options" value="VV Victoria'28, enschede">Wesselerbrink Zuid-West Victoria</option>
+            <option class = "options" value="Wesselerbrinkpark, enschede">Wesselerbrinkpark Zuid-Oost</option>
+            <option class = "options" value="Dragonheart parkeerplaats, enschede">Stroink Park Zuid</option>
+
+        </select>
+
+    </div>
+    <button class="button" id="myBtn">Trip 1</button>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="banner-text"
+                 style="margin-top: 2%; margin-bottom: 0%; padding-bottom: 0%; background-color: #f15a29; width: 50%; margin-left: 25%; margin-right: 25%;">
+                <p style="font-size: 160%; font-family: Tahoma, sans-serif; color: white;">Water the trees!</p>
+            </div>
+            <br>
+            <p style="font-size: 90%; margin-top: 0%; "> Parks: Gerrit Jan van Heekpark, Park van Lochemsbleek, Boerenkerkhof Park, Schreuer Playground </p>
+
+
+            <label for="liters"
+                   style="font-size: 120%; font-family: Tahoma, sans-serif; margin-left: 30%; margin-right: 5%; color: #414042;">Add
+                the amount of Liters:</label> <select name="liters" id="liters"
+                                                      onChange="this.size=0"
+                                                      onmousedown="if(this.options.length>5){this.size=3;}"
+                                                      onblur="this.size=0;" style="font-size: 120%; margin-bottom: 5%">
+            <option class="options" value="10L">10L</option>
+            <option class="options" value="20L">20L</option>
+            <option class="options" value="30L">30L</option>
+            <option class="options" value="40L">40L</option>
+            <option class="options" value="50L">50L</option>
+            <option class="options" value="60L">60L</option>
+            <option class="options" value="70L">70L</option>
+            <option class="options" value="80L">80L</option>
+            <option class="options" value="90L">90L</option>
+            <option class="options" value="100L">100L</option>
+        </select> <br> <label for="modalinput"
+                              style="font-size: 120%; font-family: Tahoma, sans-serif; margin-left: 21%; margin-right: 5%; color: #414042">Who
+            watered the tree?</label> <input type="text"
+                                             placeholder="Provide the full name" id="modalinput" required> <br>
+            <form>
+                <label for="waterdate" style="font-size: 120%; font-family: Tahoma, sans-serif; margin-left: 25%; margin-right: 0%; color: #414042;">Date of watering: </label>
+                <input type="date" id="waterdate" name="waterdate"
+                       style="margin-top: 5%; margin-right: 5%; margin-left: 5%; font-size: 120%">
+            </form>
+
+            <button type="button" class = "buttonsave" onClick="disable()">Save</button>
+        </div>
+
+    </div>
+
+
+    <!-- Script for the modal popup  -->
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        // When the user clicks outside the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                loadTreeDeets(ev);
+            }
+        }
+
+        var myob;
+        function loadTreeDeets(event){
+            let filter = document.getElementById("to");
+            var tt = "", x;
+            var xmlHTTP = new XMLHttpRequest();
+            xmlHTTP.onreadystatechange = function (){
+                if(this.readyState == 4 && this.status == 200){
+                    myob = JSON.parse(this.responseText);
+                    tt += "<table id =\"trees\">";
+                    for(x in myob){
+                        tt += "<tr><td>" + myob[x].species + "</td><td>" +
+                            myob[x].height + "</td><td>" + myob[x].water_level +
+                            "</td><td>" + myob[x].last_watered + "</td></tr>";
+                    }
+                    txt += "</table>"
+                    document.getElementById("trees")
+                }
+            }
+            xmlHTTP.open("GET", "/employee_portal_map/details", true);
+            xmlHTTP.send();
+        }
+    </script>
+
+    <div id="map" ></div>
+
+
+    <script src="googlemap.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqbUOZvlxy0Ypoc7VQrYBQKfuNyvm3_AM&libraries=places&callback=initMap">
+    </script>
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
