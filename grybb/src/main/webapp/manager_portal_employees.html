@@ -24,8 +24,8 @@
 			<th style="font-size:120%;"><b>Name</b></th>
 			<th style="font-size:120%;"><b>Working Hours</b></th>
 		</tr>
-	
 
+		<p id="demo"></p>
 	
 	</table>
 	
@@ -33,3 +33,33 @@
  </body>
 
 </html>
+
+<Script>
+	function employeetable() {
+		let httpr = new XMLHttpRequest();
+
+		httpr.onreadystatechange = function() {
+			if (this.readyState ===4 && this.status === 200) {
+				console.log(this.response)
+				//let body = xml.parse(this.response);
+			}
+		}
+
+		httpr.open("GET", "localhost:8080/manager_portal_employees", true)
+		httpr.setRequestHeader("Content-type", "application/xml")
+		httpr.send();
+
+		var parser, xmlDoc;
+		var text = "<employees><employee><name>Dirk van de Ruit</name><working_hours>09:00-17:00</working_hours></employee><employee><name>Pieter Post</name><working_hours>09:00-17:00</working_hours></employee><employee><name>hans kazan</name><working_hours>10:00-18:00</working_hours></employee><employee><name>Maxima van Oranje</name><working_hours>09:00-17:00</working_hours></employee><employee><name>Beatrix van Oranje</name><working_hours>10:00-18:00</working_hours></employee><employee><name>Frank de Boer</name><working_hours>09:00-17:00</working_hours></employee><employee><name>Beyonce Knowles</name><working_hours>10:00-18:00</working_hours></employee><employee><name>Mark Rutte</name><working_hours>09:00-17:00</working_hours></employee><employee><name>Max Verstappen</name><working_hours>10:00-18:00</working_hours></employee><employee><name>Taylor swift</name><working_hours>09:00-17:00</working_hours></employee></employees>";
+
+
+		//var query = ;
+
+		//parser = new DOMParser();
+		//xmlDoc = parser.parseFromString(text, "text/xml")
+		//document.getElementByid("demo").innerHTML =
+			//	xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+	}
+
+	employeetable();
+</Script>
