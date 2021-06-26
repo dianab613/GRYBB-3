@@ -12,23 +12,21 @@
 		<a class="active" href="manager_portal_employees.html">Employees</a>
 		<a href="loginportal.html">Logout</a>
 	</div>
-	
-	
+
+
 	<div class="content">
 	<div class="banner-text">
 		<h1 style="color:#414042; font-size: 180%; font-family: Tahoma, sans-serif; padding-top:2.5%;"><i>Employees</i></h1>
 	</div>
-	
-	<table>
+
+	<table id="employeeTable">
 		<tr>
 			<th style="font-size:120%;"><b>Name</b></th>
 			<th style="font-size:120%;"><b>Working Hours</b></th>
 		</tr>
 
-		<p id="demo"></p>
-	
 	</table>
-	
+
 	</div>
  </body>
 
@@ -45,21 +43,44 @@
 			}
 		}
 
-		httpr.open("GET", "localhost:8080/manager_portal_employees", true)
+		httpr.open("GET", "./rest/manager_portal_employees", true)
 		httpr.setRequestHeader("Content-type", "application/xml")
 		httpr.send();
 
 		var parser, xmlDoc;
+
+		//hard copied the result string because database connection would not work
 		var text = "<employees><employee><name>Dirk van de Ruit</name><working_hours>09:00-17:00</working_hours></employee><employee><name>Pieter Post</name><working_hours>09:00-17:00</working_hours></employee><employee><name>hans kazan</name><working_hours>10:00-18:00</working_hours></employee><employee><name>Maxima van Oranje</name><working_hours>09:00-17:00</working_hours></employee><employee><name>Beatrix van Oranje</name><working_hours>10:00-18:00</working_hours></employee><employee><name>Frank de Boer</name><working_hours>09:00-17:00</working_hours></employee><employee><name>Beyonce Knowles</name><working_hours>10:00-18:00</working_hours></employee><employee><name>Mark Rutte</name><working_hours>09:00-17:00</working_hours></employee><employee><name>Max Verstappen</name><working_hours>10:00-18:00</working_hours></employee><employee><name>Taylor swift</name><working_hours>09:00-17:00</working_hours></employee></employees>";
 
 
 		//var query = ;
 
-		//parser = new DOMParser();
-		//xmlDoc = parser.parseFromString(text, "text/xml")
-		//document.getElementByid("demo").innerHTML =
-			//	xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+		parser = new DOMParser();
+		xmlDoc = parser.parseFromString(text, "text/xml")
+
+		console.log(xmlDoc.getElementsByTagName("employee")[0].childNodes[0].childNodes[0].nodeValue);
+
+		fillTable(text);
 	}
 
 	employeetable();
+
+	function fillTable(xml) {
+		parser = new DOMParser();
+		xmlDoc = parser.parseFromString(xml, "text/xml");
+
+		let table = document.getElementById("employeeTable");
+		let nameCol = document.getElementById("employeeName");
+		let hoursCol = document.getElementById("employeeHours");
+
+		for (let i = 0; i < xmlDoc.getElementsByTagName("employee").length; i++) {
+			let row = table.insertRow(i + 1);
+
+			let name = row.insertCell(0);
+			let hours = row.insertCell(1);
+
+			name.innerHTML = xmlDoc.getElementsByTagName("employee")[i].childNodes[0].childNodes[0].nodeValue;
+			hours.innerHTML = xmlDoc.getElementsByTagName("employee")[i].childNodes[1].childNodes[0].nodeValue;
+		}
+	}
 </Script>
