@@ -2,10 +2,11 @@ package diproj.signups;
 
 public class Information {
 
-    public String name;
-    public String uname;
-    public String psw;
-    public String role;
+    private String name;
+    private String uname;
+    private String psw;
+    private String role;
+    private String phone_no;
 
     public Information(){
     }
@@ -42,6 +43,14 @@ public class Information {
         this.uname = uname;
     }
 
+    public void setPhone_no(String phone_no) {
+        this.phone_no = phone_no;
+    }
+
+    public String getPhone_no() {
+        return phone_no;
+    }
+
     @Override
     public String toString() {
         return "Information{" +
@@ -49,6 +58,7 @@ public class Information {
                 ", uname='" + uname + '\'' +
                 ", psw='" + psw + '\'' +
                 ", role='" + role + '\'' +
+                ", phone_no='" + phone_no + '\'' +
                 '}';
     }
 }

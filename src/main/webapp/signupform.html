@@ -11,15 +11,16 @@
   <p style="line-height:200%; text-align: center; font-size: 150%; color: #414042;  font-family: Tahoma, sans-serif;	">
     <b> Create an account </b></p>
   <form target="useless">
-    <input style="margin-top:-3%" type="text" placeholder="First Name" name="fname" required>
+    <input style="margin-top:-3%" type="text" placeholder="First Name" name="fname" id="fname" required>
     <br><br>
-    <input type="text" placeholder="Last Name" name="lname" required>
+    <input type="text" placeholder="Last Name" name="lname"  id="lname" required>
     <br><br>
-    <input type="text" placeholder="Email (username)" name="uname" required>
+    <input type="text" placeholder="Email (username)" name="uname" id="uname" required>
     <br><br>
-    <input id="myInput" type="password" placeholder="Password" name="psw" required>
-    <br>
-    <br>
+    <input id="myInput" type="password" placeholder="Password" name="psw" id="psw" required>
+    <br><br>
+    <input type="text" placeholder="Phone number" name="phone_no" id="phone_no" required>
+    <br><br>
     <button class="showpsw" type="button" onclick="showpass()">Show Password</button>
 
     <script>
@@ -48,11 +49,12 @@
         xmlhttpPost.open("POST", "/rest/signupform/add", true);
         xmlhttpPost.setRequestHeader("Content-type", "application/json");
         alert("4");
-        let uname = document.getElementsByName("uname");
-        let fname = document.getElementsByName("fname");
-        let lname = document.getElementsByName("lname");
-        let name = fname[0].value + " " + lname[0].value;
-        let psw = document.getElementsByName("psw");
+        let uname = document.getElementById("uname");
+        let fname = document.getElementById("fname");
+        let lname = document.getElementById("lname");
+        let name = fname.value + " " + lname.value;
+        let psw = document.getElementById("psw");
+        let phone_no = document.getElementById("phone_no");
         let role;
         alert("5");
         if (uname.values().contains("@employee.com")) {
@@ -64,9 +66,10 @@
          }
           let jsonText = {
             "name" : name,
-            "uname" : uname[0].value,
-            "psw" : psw[0].value,
-            "role" : role
+            "uname" : uname.value,
+            "psw" : psw.value,
+            "role" : role.value,
+            "phone_no" : phone_no.value
           }
         alert(jsonText);
           xmlhttpPost.send(JSON.stringify(jsonText));
