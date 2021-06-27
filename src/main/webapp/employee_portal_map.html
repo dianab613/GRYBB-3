@@ -14,7 +14,7 @@
     <img src="logo.png" alt="Grybb Logo">
     <a class="active" href="employee_portal_map.html">Tree Map</a>
     <a href="employee_schedule.html">My Schedule</a>
-    <a href="loginportal.html">Logout</a>
+    <a href="loginportal.html" onclick="removeCookie()">Logout</a>
 </div>
 
 <div class="content">
@@ -155,6 +155,9 @@
             }
             xmlHTTP.open("GET", "/employee_portal_map/details", true);
             xmlHTTP.send();
+        }
+        function removeCookie(){
+            document.cookie = "session_id = " + body.token + "; expires = Thu, 01 Jan 1970 00:00:00 GMT"
         }
     </script>
 

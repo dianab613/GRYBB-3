@@ -6,7 +6,7 @@ import java.util.UUID;
 public class LoginREST {
     public LoginREST() {
     }
-
+    Session session = new Session(null, -1);
 
     @POST
     @Path("/login")
@@ -17,6 +17,8 @@ public class LoginREST {
         if (log.validateLogin(credentials.getEmail(), credentials.getPassword())) {
             String uuid = UUID.randomUUID().toString();
             Session userSession = new Session(uuid, log.getRole(credentials.getEmail()));
+            this.session.setRole(log.getRole(credentials.getEmail()));
+            this.session.setToken(uuid);
             return userSession;
         }
         else {

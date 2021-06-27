@@ -5,6 +5,7 @@ import diproj.signups.resources.tools.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class SignUpResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/add")
-    public String createUser(Information information) throws SQLException {
+    public String createUser(Information information) throws SQLException, NoSuchAlgorithmException {
         DBConnection dbConnection = new DBConnection();
         Connection connection = dbConnection.createConnection();
         Hash hash = new Hash();

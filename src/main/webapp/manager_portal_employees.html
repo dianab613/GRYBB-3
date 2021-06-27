@@ -23,8 +23,8 @@
 		<tr>
 			<th style="font-size:120%;"><b>Name</b></th>
 			<th style="font-size:120%;"><b>Working Hours</b></th>
+			<th style="font-size:120%;"><b>Last active</b></th>
 		</tr>
-
 	</table>
 
 	</div>
@@ -53,15 +53,19 @@
 			let table = document.getElementById("employeeTable");
 			let nameCol = document.getElementById("employeeName");
 			let hoursCol = document.getElementById("employeeHours");
+			let activecol = document.getElementById("employeeActive")
 
 			for (let i = 0; i < xmlDoc.getElementsByTagName("employee").length; i++) {
 				let row = table.insertRow(i + 1);
 
 				let name = row.insertCell(0);
 				let hours = row.insertCell(1);
+				let active = row.insertCell(2)
+
 
 				name.innerHTML = xmlDoc.getElementsByTagName("employee")[i].childNodes[0].childNodes[0].nodeValue;
 				hours.innerHTML = xmlDoc.getElementsByTagName("employee")[i].childNodes[1].childNodes[0].nodeValue;
+				active.innerHTML = xmlDoc.getElementsByTagName("employee")[i].childNodes[2].childNodes[0].nodeValue;
 			}
 		}
 	</script>

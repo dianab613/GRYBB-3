@@ -1,3 +1,4 @@
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 
 import diproj.signups.resources.tools.Hash;
@@ -28,7 +29,7 @@ public class Login {
                     return true;
                 }
             }
-        } catch (SQLException | ClassNotFoundException throwables) {
+        } catch (SQLException | ClassNotFoundException | NoSuchAlgorithmException throwables) {
             throwables.printStackTrace();
         }
         return false;

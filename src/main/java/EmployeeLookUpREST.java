@@ -12,7 +12,6 @@ public class EmployeeLookUpREST {
     @GET
     @Path("/lookup")
     @Produces(MediaType.APPLICATION_XML)
-    @Path("/lookUp")
     public String EmployeeLookUpREST(){
 
         String result = null;
