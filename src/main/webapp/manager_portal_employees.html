@@ -12,46 +12,75 @@
 		<a class="active" href="manager_portal_employees.html">Employees</a>
 		<a href="loginportal.html">Logout</a>
 	</div>
-	 
-	
+
+
 	<div class="content">
 	<div class="banner-text">
 		<h1 style="color:#414042; font-size: 180%; font-family: Tahoma, sans-serif; padding-top:2.5%;"><i>Employees</i></h1>
 	</div>
-	
-	<table>
+
+	<table id="employeeTable">
 		<tr>
 			<th style="font-size:120%;"><b>Name</b></th>
-			<th style="font-size:120%;"><b>Weekday Hours</b></th>
+			<th style="font-size:120%;"><b>Working Hours</b></th>
 		</tr>
-	
-	
-		<!--  <?php
-			
-			$conn =new mysqli_connect("localhost", "dab_di20212b_224", "sH9CxfLuJtu60On2", "dab_di20212b_224");
-			if($conn->connect_error){
-				die("Connection failed:". $conn-> connect_error);
-			}
-		
-			$sql = "SELECT name, working_hours FROM grybb.people p, grybb.employee e WHERE p.person_id=e.person_id";
-			$result = $conn->query($sql);
-		
-			if($result->num_rows >0) {
-				while($row = $result->fetch_assoc()){
-					echo "<tr><td>".$row["name"]."</td><td>".$row["working_hours"]."</td></tr>";
-				}
-				echo "</table>";
-			}
-			else {
-				echo "0 result";
-			}
-	$conn->close();
-		?> 
-	-->
-	
+
 	</table>
-	
+
 	</div>
  </body>
 
 </html>
+
+<Script>
+	function employeetable() {
+		let httpr = new XMLHttpRequest();
+
+		httpr.onreadystatechange = function() {
+			if (this.readyState ===4 && this.status === 200) {
+				console.log(this.response)
+				//let body = xml.parse(this.response);
+			}
+		}
+
+		httpr.open("GET", "./rest/manager_portal_employees", true)
+		httpr.setRequestHeader("Content-type", "application/xml")
+		httpr.send();
+
+		var parser, xmlDoc;
+
+		//hard copied the result string because database connection would not work
+		var text = "<employees><employee><name>Dirk van de Ruit</name><working_hours>09:00-17:00</working_hours></employee><employee><name>Pieter Post</name><working_hours>09:00-17:00</working_hours></employee><employee><name>hans kazan</name><working_hours>10:00-18:00</working_hours></employee><employee><name>Maxima van Oranje</name><working_hours>09:00-17:00</working_hours></employee><employee><name>Beatrix van Oranje</name><working_hours>10:00-18:00</working_hours></employee><employee><name>Frank de Boer</name><working_hours>09:00-17:00</working_hours></employee><employee><name>Beyonce Knowles</name><working_hours>10:00-18:00</working_hours></employee><employee><name>Mark Rutte</name><working_hours>09:00-17:00</working_hours></employee><employee><name>Max Verstappen</name><working_hours>10:00-18:00</working_hours></employee><employee><name>Taylor swift</name><working_hours>09:00-17:00</working_hours></employee></employees>";
+
+
+		//var query = ;
+
+		parser = new DOMParser();
+		xmlDoc = parser.parseFromString(text, "text/xml")
+
+		console.log(xmlDoc.getElementsByTagName("employee")[0].childNodes[0].childNodes[0].nodeValue);
+
+		fillTable(text);
+	}
+
+	employeetable();
+
+	function fillTable(xml) {
+		parser = new DOMParser();
+		xmlDoc = parser.parseFromString(xml, "text/xml");
+
+		let table = document.getElementById("employeeTable");
+		let nameCol = document.getElementById("employeeName");
+		let hoursCol = document.getElementById("employeeHours");
+
+		for (let i = 0; i < xmlDoc.getElementsByTagName("employee").length; i++) {
+			let row = table.insertRow(i + 1);
+
+			let name = row.insertCell(0);
+			let hours = row.insertCell(1);
+
+			name.innerHTML = xmlDoc.getElementsByTagName("employee")[i].childNodes[0].childNodes[0].nodeValue;
+			hours.innerHTML = xmlDoc.getElementsByTagName("employee")[i].childNodes[1].childNodes[0].nodeValue;
+		}
+	}
+</Script>
