@@ -1,5 +1,7 @@
 import java.sql.*;
 
+import diproj.signups.resources.tools.Hash;
+
 public class Login {
 
     public Login() {

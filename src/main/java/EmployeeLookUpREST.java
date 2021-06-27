@@ -1,5 +1,3 @@
-package grybb.src.main.java;
-
 import javax.print.DocFlavor;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

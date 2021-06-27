@@ -1,3 +1,5 @@
+package diproj.signups.resources.tools;
+
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 public class Hash {

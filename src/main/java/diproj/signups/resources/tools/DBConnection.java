@@ -1,4 +1,4 @@
-package diproj.signups.resources.signups;
+package diproj.signups.resources.tools;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
