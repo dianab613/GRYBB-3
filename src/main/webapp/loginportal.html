@@ -39,6 +39,7 @@
                     if (this.readyState === 4 && this.status === 200) {
                         let body = JSON.parse(this.response);
                         document.cookie = "session_id = " + body.token;
+                        localStorage.setItem('token',body.token)
                         if (body.role === 1)
                             window.location.replace("/employee_portal_map.html")
                         else if (body.role === 2)

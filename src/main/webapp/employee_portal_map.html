@@ -10,11 +10,16 @@
 </head>
 
 <body>
+<script src="googlemap.js"></script>
+<script src="tokenCheck.js"></script>
+<script src="logout.js"></script>
+
+<script> document.addEventListener('DOMContentLoaded',  tokenCheck(), false);</script>
 <div class="sidebar">
     <img src="logo.png" alt="Grybb Logo">
     <a class="active" href="employee_portal_map.html">Tree Map</a>
     <a href="employee_schedule.html">My Schedule</a>
-    <a href="loginportal.html" onclick="removeCookie()">Logout</a>
+    <a href="loginportal.html" onclick="logout()">Logout</a>
 </div>
 
 <div class="content">
@@ -156,15 +161,11 @@
             xmlHTTP.open("GET", "/employee_portal_map/details", true);
             xmlHTTP.send();
         }
-        function removeCookie(){
-            document.cookie = "session_id = " + body.token + "; expires = Thu, 01 Jan 1970 00:00:00 GMT"
-        }
     </script>
 
     <div id="map" ></div>
 
 
-    <script src="googlemap.js"></script>
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqbUOZvlxy0Ypoc7VQrYBQKfuNyvm3_AM&libraries=places&callback=initMap">
     </script>
 

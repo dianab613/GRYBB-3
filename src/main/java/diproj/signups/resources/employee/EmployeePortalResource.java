@@ -45,14 +45,9 @@ public class EmployeePortalResource {
             while(rs.next()){
                 Tree t = new Tree();
                 t.setId(rs.getInt("tree_id"));
-                t.setSpecies(rs.getString("species"));
-                t.setHeight(rs.getDouble("height"));
-                t.setYear(rs.getInt("year_planted"));
+
                 t.setWlevel(rs.getInt("water_level"));
-                t.setCid(rs.getInt("company_id"));
-                t.setLocation(rs.getString("location"));
-                t.setAlive(rs.getBoolean("alive"));
-                t.setLastw(rs.getDate("last_watered"));
+
                 trees.add(t);
             }
     } catch(Exception E) {

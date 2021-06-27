@@ -87,6 +87,7 @@ public class SignUpResource {
             LocalDateTime now = LocalDateTime.now();
             PreparedStatement statement = connection.prepareStatement(Queries.query5 ,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             statement.setInt(1, person_id);
+            statement.setString(2, now.toString());
             statement.executeUpdate();
             connection.close();
         } catch(Exception E){

@@ -10,6 +10,13 @@ public class Session {
         this.token = token;
         this.role = role;
     }
+    @Override
+    public String toString() {
+        return "Session{" +
+                "token='" + token + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 
     public void setToken(String token) {
         this.token = token;
