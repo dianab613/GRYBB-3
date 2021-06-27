@@ -1,3 +1,4 @@
+package diproj.signups.resources.tools;
 
 public class Queries {
     static final public String query1 = "SELECT password FROM people WHERE email = ?";
@@ -15,4 +16,5 @@ public class Queries {
             "FROM people p, employee e\n" +
             "WHERE p.person_id = e.person_id\n" +
             "ORDER BY p.person_id) AS test";
+    static final public String query5 = "INSERT INTO employee VALUES (?,'09:00-17:00', NULL, '-')";
 }

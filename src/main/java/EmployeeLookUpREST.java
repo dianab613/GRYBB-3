@@ -1,10 +1,9 @@
-import javax.print.DocFlavor;
+import diproj.signups.resources.tools.Queries;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Path("/manager_portal_employees")
 @XmlRootElement

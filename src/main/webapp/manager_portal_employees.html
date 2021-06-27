@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="manager_portal_employees.css">
 	<title> Management Portal - Employees</title>
 </head>
-<body>
+<body onload="employeetable()">
 	<div class="sidebar">
 		<img src="logo.png" alt="Grybb Logo">
 		<a href="manager_portal_statistics.html">Statistics</a>
@@ -28,44 +28,44 @@
 	</table>
 
 	</div>
+	<script>
+		function employeetable() {
+			let httpr = new XMLHttpRequest();
+
+			httpr.onreadystatechange = function() {
+				if (this.readyState ===4 && this.status === 200) {
+					console.log(this.response)
+					fillTable(this.response);
+					//let body = xml.parse(this.response);
+				}
+			}
+
+			httpr.open("GET", "/rest/manager_portal_employees/lookup", true)
+			httpr.setRequestHeader("Content-type", "application/xml")
+			httpr.send();
+		}
+
+
+		function fillTable(xml) {
+			let parser = new DOMParser();
+			let xmlDoc = parser.parseFromString(xml, "text/xml");
+
+			let table = document.getElementById("employeeTable");
+			let nameCol = document.getElementById("employeeName");
+			let hoursCol = document.getElementById("employeeHours");
+
+			for (let i = 0; i < xmlDoc.getElementsByTagName("employee").length; i++) {
+				let row = table.insertRow(i + 1);
+
+				let name = row.insertCell(0);
+				let hours = row.insertCell(1);
+
+				name.innerHTML = xmlDoc.getElementsByTagName("employee")[i].childNodes[0].childNodes[0].nodeValue;
+				hours.innerHTML = xmlDoc.getElementsByTagName("employee")[i].childNodes[1].childNodes[0].nodeValue;
+			}
+		}
+	</script>
  </body>
 
 </html>
 
-<Script>
-	function employeetable() {
-		let httpr = new XMLHttpRequest();
-
-		httpr.onreadystatechange = function() {
-			if (this.readyState ===4 && this.status === 200) {
-				console.log(this.response)
-				//let body = xml.parse(this.response);
-			}
-		}
-
-		httpr.open("GET", "/rest/manager_portal_employees/lookup", true)
-		httpr.setRequestHeader("Content-type", "application/xml")
-		httpr.send();
-	}
-
-	employeetable();
-
-	function fillTable(xml) {
-		let parser = new DOMParser();
-		let xmlDoc = parser.parseFromString(xml, "text/xml");
-
-		let table = document.getElementById("employeeTable");
-		let nameCol = document.getElementById("employeeName");
-		let hoursCol = document.getElementById("employeeHours");
-
-		for (let i = 0; i < xmlDoc.getElementsByTagName("employee").length; i++) {
-			let row = table.insertRow(i + 1);
-
-			let name = row.insertCell(0);
-			let hours = row.insertCell(1);
-
-			name.innerHTML = xmlDoc.getElementsByTagName("employee")[i].childNodes[0].childNodes[0].nodeValue;
-			hours.innerHTML = xmlDoc.getElementsByTagName("employee")[i].childNodes[1].childNodes[0].nodeValue;
-		}
-	}
-</Script>
