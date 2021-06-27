@@ -30,11 +30,11 @@ public class Queries {
      static String query6;
 
     public static String FillDB(String i, String name, String password, String number, String email, String role, String hours, String active, String area) throws NoSuchAlgorithmException {
-        query6 = "INSERT INTO person (person_id, name ,password, phone_number, email, role)\n" +
-                "VALUES(" + i + ", " + name + ", " + hash.hashPassword(password) + ", " + number + ", " + email + ", " + role + ")";
+        query6 = "INSERT INTO people (person_id, name ,password, phone_number, email, role)\n" +
+                "VALUES('" + i + "', '" + name + "', '" + hash.hashPassword(password) + "', '" + number + "', '" + email + "', '" + role + "')";
         if (role.equals("Field Engineer")) {
             query6 = query6 + "\n INSERT INTO employee(person_id, working_hours, last_active, area) \n" +
-                    "VALUES (" + i + ", " + hours + ", " + active + ", " + area + ")";
+                    "VALUES ('"  + i + "', '" + hours + "', '" + active + "', '" + area + "')";
         }
         return query6;
     }
