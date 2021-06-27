@@ -11,6 +11,7 @@ import java.util.List;
 public class EmployeeLookUpREST {
 
     @GET
+    @Path("/lookup")
     @Produces(MediaType.APPLICATION_XML)
     public String EmployeeLookUpREST(){
 

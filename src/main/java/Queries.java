@@ -1,8 +1,8 @@
 
 public class Queries {
-    static final public String query1 = "SELECT password FROM people WHERE name = ?";
+    static final public String query1 = "SELECT password FROM people WHERE email = ?";
     static final public String query2 = "SELECT name from people WHERE name = ?";
-    static final public String query3 = "SELECT role from people WHERE name = ?";
+    static final public String query3 = "SELECT role from people WHERE email = ?";
 
     // employee lookup table
     static final public String query4 = "SELECT p.name, e.working_hours\n" +

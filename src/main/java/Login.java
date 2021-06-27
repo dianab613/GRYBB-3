@@ -8,7 +8,7 @@ public class Login {
 
     }
 
-    public boolean validateLogin(String username, String password) {
+    public boolean validateLogin(String email, String password) {
         String host = "bronto.ewi.utwente.nl";
         String dbName = "dab_di20212b_224";
         String url = "jdbc:postgresql://" + host + ":5432/" + dbName + "?currentSchema=grybb";
@@ -17,7 +17,7 @@ public class Login {
             Class.forName("org.postgresql.Driver");
             Connection connection = DriverManager.getConnection(url, dbName, "sH9CxfLuJtu60On2");
             PreparedStatement statement = connection.prepareStatement(Queries.query1);
-            statement.setString(1, username);
+            statement.setString(1, email);
 
             ResultSet rs1 = statement.executeQuery();
 

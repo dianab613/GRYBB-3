@@ -11,7 +11,7 @@
     <p style="line-height:60px; text-align: center; font-size: 150%; color: #414042;  font-family: Tahoma, sans-serif;	">
         <b> LOGIN </b></p>
     <form target="useless">
-        <input type="text" placeholder="Enter Username" id="uname" required>
+        <input type="text" placeholder="Enter Email" id="email" required>
         <br>
         <br>
         <input id="psw" type="password" placeholder="Enter Password" name="psw" required>
@@ -49,10 +49,10 @@
                 };
                 httpr.open("POST", "/rest/account/login", true);
                 httpr.setRequestHeader("Content-type", "application/json");
-                let uname = document.getElementById("uname").value;
+                let email = document.getElementById("email").value;
                 let pword = document.getElementById("psw").value;
                 let JSONtext = {
-                    "username": uname,
+                    "email": email,
                     "password": pword
                 };
                 httpr.send(JSON.stringify(JSONtext));

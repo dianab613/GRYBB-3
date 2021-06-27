@@ -14,9 +14,9 @@ public class LoginREST {
     @Produces(MediaType.APPLICATION_JSON)
     public Session myLoginREST(Credentials credentials) {
         Login log = new Login();
-        if (log.validateLogin(credentials.getUsername(), credentials.getPassword())) {
+        if (log.validateLogin(credentials.getEmail(), credentials.getPassword())) {
             String uuid = UUID.randomUUID().toString();
-            Session userSession = new Session(uuid, log.getRole(credentials.getUsername()));
+            Session userSession = new Session(uuid, log.getRole(credentials.getEmail()));
             return userSession;
         }
         else {
