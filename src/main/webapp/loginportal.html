@@ -1,0 +1,77 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+<head>
+    <link rel="stylesheet" href="login.css">
+    <title> Login </title>
+</head>
+<body>
+<img src="logo.png" alt="Grybb Logo">
+<div class="banner-text">
+    <p style="line-height:60px; text-align: center; font-size: 150%; color: #414042;  font-family: Tahoma, sans-serif;	">
+        <b> LOGIN </b></p>
+    <form target="useless">
+        <input type="text" placeholder="Enter Email" id="email" required>
+        <br>
+        <br>
+        <input id="psw" type="password" placeholder="Enter Password" name="psw" required>
+        <br>
+        <br>
+
+        <button class="btn showpsw" type="button" onclick="showpass()">Show Password</button>
+        <button class="btn forgotpsw" type="button" onclick="document.location= 'passwordrecovery.html'"><i><u>Forgot
+            Password?</u></i></button>
+
+        <script>
+            function showpass() {
+                let x = document.getElementById("myInput");
+                if (x.type == "password") {
+                    x.type = " text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
+        <script>
+            function validatePass() {
+                let httpr = new XMLHttpRequest();
+                httpr.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        let body = JSON.parse(this.response);
+                        document.cookie = "session_id = " + body.token;
+                        if (body.role === 1)
+                            window.location.replace("/employee_portal_map.html")
+                        else if (body.role === 2)
+                            window.location.replace("/manager_portal_employees.html")
+                        else if (body.role === 3)
+                            window.location.replace("/municipality_portal.html")
+                    }
+                };
+                httpr.open("POST", "/rest/account/login", true);
+                httpr.setRequestHeader("Content-type", "application/json");
+                let email = document.getElementById("email").value;
+                let pword = document.getElementById("psw").value;
+                let JSONtext = {
+                    "email": email,
+                    "password": pword
+                };
+                httpr.send(JSON.stringify(JSONtext));
+            }
+        </script>
+        <iframe name="useless" style="display:none"></iframe>
+
+        <br>
+        <br>
+        <button type="submit" onclick="validatePass()">Login</button>
+        <br>
+        <br>
+        <p style="text-align: center; font-size: 85%; color:black; font-family: Tahoma, sans-serif;"> Not a member? </p>
+        <a href="signupform.html">
+            <p style="line-height:0%; text-align: center; font-size: 85%; font-family: Tahoma, sans-serif; "><i> Create
+                an account </i></p>
+        </a>
+        <br style="line-height:0%;">
+    </form>
+</div>
+</body>
+</html>

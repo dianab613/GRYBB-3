@@ -1,5 +1,3 @@
-package grybb.src.main.java;
-
 import javax.print.DocFlavor;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -13,6 +11,7 @@ import java.util.List;
 public class EmployeeLookUpREST {
 
     @GET
+    @Path("/lookup")
     @Produces(MediaType.APPLICATION_XML)
     @Path("/lookUp")
     public String EmployeeLookUpREST(){

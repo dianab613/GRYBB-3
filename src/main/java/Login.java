@@ -1,37 +1,31 @@
-package grybb.src.main.java;
-
 import java.sql.*;
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+
+import diproj.signups.resources.tools.Hash;
 
 public class Login {
-    int role;
 
-    public Login(int role) {
-        // 1 = field worker
-        // 2 = manager
-        // 3 = municipality officer
-        this.role = role;
+    public Login() {
+
     }
 
-    public boolean validateLogin(String username, String password) {
+    public boolean validateLogin(String email, String password) {
         String host = "bronto.ewi.utwente.nl";
         String dbName = "dab_di20212b_224";
         String url = "jdbc:postgresql://" + host + ":5432/" + dbName + "?currentSchema=grybb";
+        Hash hash = new Hash();
         try {
             Class.forName("org.postgresql.Driver");
             Connection connection = DriverManager.getConnection(url, dbName, "sH9CxfLuJtu60On2");
-            PreparedStatement statement = connection.prepareStatement(Queries.query3);
-            statement.setString(1, username);
-            statement.setString(2, password);
+            PreparedStatement statement = connection.prepareStatement(Queries.query1);
+            statement.setString(1, email);
 
             ResultSet rs1 = statement.executeQuery();
 
-
             if (rs1.next()) {
-                return true;
+                String userpass = rs1.getString(1);
+                if (hash.matchPass(password, userpass)) {
+                    return true;
+                }
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -39,7 +33,7 @@ public class Login {
         return false;
     }
 
-    public int getRole(String username, String password) {
+    public int getRole(String username) {
         String host = "bronto.ewi.utwente.nl";
         String dbName = "dab_di20212b_224";
         String url = "jdbc:postgresql://" + host + ":5432/" + dbName + "?currentSchema=grybb";
@@ -49,18 +43,25 @@ public class Login {
             Connection connection = DriverManager.getConnection(url, dbName, "sH9CxfLuJtu60On2");
             PreparedStatement statement = connection.prepareStatement(Queries.query3);
             statement.setString(1, username);
-            statement.setString(2, password);
 
             ResultSet rs1 = statement.executeQuery();
 
 
             if (rs1.next()) {
-                return 0;
+                String role = rs1.getString(1);
+                switch (role){
+                    case "Field Engineer":
+                        return 1;
+                    case "Manager":
+                        return 2;
+                    case "Municipality":
+                        return 3;
+                }
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
 
-        return 1;
+        return 0;
     }
 }

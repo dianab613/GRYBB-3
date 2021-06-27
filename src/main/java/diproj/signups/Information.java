@@ -6,6 +6,7 @@ public class Information {
     public String uname;
     public String psw;
     public String role;
+    public String phone_no;
 
     public Information(){
     }
@@ -25,6 +26,9 @@ public class Information {
     public String getRole() {
         return role;
     }
+    public String getPhone_no() {
+        return phone_no;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -41,14 +45,8 @@ public class Information {
     public void setUname(String uname) {
         this.uname = uname;
     }
-
-    @Override
-    public String toString() {
-        return "Information{" +
-                "name='" + name + '\'' +
-                ", uname='" + uname + '\'' +
-                ", psw='" + psw + '\'' +
-                ", role='" + role + '\'' +
-                '}';
+    public void setPhone_no(String phone_no){
+        this.phone_no = phone_no;
     }
+
 }

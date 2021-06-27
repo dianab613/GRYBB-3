@@ -1,36 +1,71 @@
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
+import java.util.Scanner;
 
 public class CreateDatabase {
+
     public static void main(String[] args){
         String host = "bronto.ewi.utwente.nl";
         String dbName = "dab_di20212b_224";
-        String password = "sH9CxfLuJtu60On2";
         String url = "jdbc:postgresql://" + host + ":5432/" +  dbName + "?currentSchema=grybb";
+        String username = "e";
+        Scanner myObj = new Scanner(System.in);
         try {
             Class.forName("org.postgresql.Driver");
-            Connection connection = DriverManager.getConnection(url, dbName, password);
-//        connection.setAutoCommit(false);
+            Connection connection = DriverManager.getConnection(url, dbName, "sH9CxfLuJtu60On2");
 
-            String sql = "CREATE TABLE company (cid int, name varchar(50), description varchar(225), " +
-                    "PRIMARY KEY (cid) );";
-            String sql2 =  "CREATE TABLE tree (tid int, species varchar(50), height float, year_planted smallint, " +
-                    "water_level int, cid int, location varchar(100), status bit, last_watered date, " +
-                    "PRIMARY KEY (tid), " +
-                    "FOREIGN KEY (cid) REFERENCES company(cid)); ";
-            String sql3 = "CREATE TABLE people (pid int, name varchar(100), telephone varchar(10), " +
-                    "email varchar(50), password varchar(20), role varchar(50), " +
-                    "PRIMARY KEY (pid)); ";
-            String sql4 = "CREATE TABLE employee (pid int, working_hours varchar(50), last_active date, area varchar(50), " +
-                    "CONSTRAINT pk_employee PRIMARY KEY (pid,area), "+
-                    "FOREIGN KEY (pid) REFERENCES people(pid));";
+
+            String sql =
+                    "DROP TABLE IF EXISTS company CASCADE;" +
+                            "CREATE TABLE company (" +
+                            "Company_id int, " +
+                            "Name TEXT, " +
+                            "Description text, " +
+                            "PRIMARY KEY (Company_id) " +
+                            ");";
+            String sql2 = "DROP TABLE IF EXISTS tree CASCADE ;" +
+                    "CREATE TABLE tree (" +
+                    "Tree_id int," +
+                    "Species TEXT, " +
+                    "Height float, " +
+                    "Year_planted smallint, " +
+                    "Water_level int, " +
+                    "Company_id int, " +
+                    "Location text, " +
+                    "Alive bit, " +
+                    "Last_watered date, " +
+                    "PRIMARY KEY (Tree_id), " +
+                    "FOREIGN KEY (Company_id) REFERENCES company(Company_id) " +
+                    "); ";
+            String sql3 = "DROP TABLE IF EXISTS people CASCADE ;" +
+                    "CREATE TABLE people ( " +
+                    "Person_id int, " +
+                    "Name text, " +
+                    "Password varchar, " +
+                    "Phone_number varchar(10), " +
+                    "Email text, " +
+                    "Role text, " +
+                    "PRIMARY KEY (Person_id) " +
+                    "); ";
+            String sql4 = "DROP TABLE IF EXISTS employee CASCADE ;" +
+                    "CREATE TABLE employee ( " +
+                    "Person_id int, " +
+                    "Working_hours text, " +
+                    "Last_active date, " +
+                    "Area text, " +
+                    "CONSTRAINT PK_Employee PRIMARY KEY (Person_id,area)," +
+                    "FOREIGN KEY (Person_id) REFERENCES people(Person_id) " +
+                    ");";
+            String Dirk = "INSERT INTO people (Person_id, Name, Password, Phone_number, Email, Role) \n" +
+                    "VALUES (1,'Dirk van de Ruit', 'GrybbTeam3','0637557119', 'dirk.vanderuit@gmail.com', 'Field Engineer');";
+
 
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
             statement.executeUpdate(sql2);
             statement.executeUpdate(sql3);
             statement.executeUpdate(sql4);
-
-            System.out.println("Database has been successfully created.");
+            statement.executeUpdate(Dirk);
             connection.close();
 
         } catch(Exception E){
