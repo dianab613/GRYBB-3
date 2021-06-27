@@ -6,7 +6,12 @@
     <title> My Schedule </title>
 </head>
 
-<body onload="tokenCheck()">
+<body>
+<script src="googlemap.js"></script>
+<script src="tokenCheck.js"></script>
+<script src="logout.js"></script>
+
+<script> document.addEventListener('DOMContentLoaded',  tokenCheck(), false);</script>
    <div class="sidebar">
 	<a href="employee_portal_map.html">
 		<img src="logo.png" alt="Grybb Logo">

@@ -5,7 +5,12 @@
 	<link rel="stylesheet" href="manager_portal_employees.css">
 	<title> Management Portal - Employees</title>
 </head>
-<body onload="employeetable()" onload="tokenCheck()">>
+<body onload="employeetable()">
+<script src="googlemap.js"></script>
+<script src="tokenCheck.js"></script>
+<script src="logout.js"></script>
+
+<script> document.addEventListener('DOMContentLoaded',  tokenCheck(), false);</script>
 	<div class="sidebar">
 		<img src="logo.png" alt="Grybb Logo">
 		<a href="manager_portal_statistics.html">Statistics</a>

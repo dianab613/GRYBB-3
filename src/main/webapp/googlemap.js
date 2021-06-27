@@ -250,7 +250,23 @@ function initMap() {
 
 
                 const infowindow = new google.maps.InfoWindow({
-                    content: "<p> I'm at " + marker.waterlvl + "% water level</p>",
+                    content: "<form>\n" +
+                        "  <label for=\"volume\">How much water?</label>\n" +
+                        "  <select name=\"liters\" id=\"water\">\n" +
+                        "    <option value=\"0\">0</option>\n" +
+                        "    <option value=\"10\">10</option>\n" +
+                        "    <option value=\"20\">20</option>\n" +
+                        "    <option value=\"30\">30</option>\n" +
+                        "    <option value=\"40\">40</option>\n" +
+                        "    <option value=\"50\">50</option>\n" +
+                        "    <option value=\"60\">60</option>\n" +
+                        "    <option value=\"70\">70</option>\n" +
+                        "    <option value=\"80\">80</option>\n" +
+                        "    <option value=\"90\">90</option>\n" +
+                        "    <option value=\"100\">100</option>\n" +
+                        "  </select>\n" +
+                       `<input type=\"submit\" onclick=\"water(${marker.id}, document.getElementById('water'))\" value=\"Submit\">\n` +
+                        " </form>\n",
                     maxWidth: 300,
                 });
 
@@ -272,7 +288,6 @@ function initMap() {
 
 
 }
-
 
 function calculateAndDisplayRoute(direction, display) {
     direction.route({
@@ -300,4 +315,23 @@ function disable() {
     }
 }
 
+
+function water(id, volume){
+console.log("water called");
+let XMLhttpPost = new XMLHttpRequest();
+XMLhttpPost.onreadystatechange = function () {
+if (this.readyState === 4 && this.status === 200) {
+if(this.response === true){
+alert('success')
+ }
+}
+}
+XMLhttpPost.open("POST", "/rest/employee_portal_map/watering/water", true);
+XMLhttpPost.setRequestHeader("Content-type", "application/json");
+let jsonText = {
+"tree_id" : id,
+"wlevel" : volume
+}
+XMLhttpPost.send(JSON.stringify(jsonText));
+}
 
