@@ -11,7 +11,7 @@ public class Queries {
 
     static  final public String query4V2 = "SELECT XMLElement(NAME employees, XMLAGG(rows))\n" +
             "FROM(\n" +
-            "SELECT p.person_id, XMLELEMENT(NAME Employee, XMLFOREST(P.name, e.working_hours)) AS rows\n" +
+            "SELECT p.person_id, XMLELEMENT(NAME Employee, XMLFOREST(P.name, e.working_hours, e.last_active)) AS rows\n" +
             "FROM people p, employee e\n" +
             "WHERE p.person_id = e.person_id\n" +
             "ORDER BY p.person_id) AS test";
