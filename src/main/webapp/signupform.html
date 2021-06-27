@@ -41,6 +41,9 @@
             if (this.response === "true") {
               window.location.replace("/loginportal.html")
             }
+            if (this.response === "false") {
+              window.alert("email already in use")
+            }
           }
         }
         xmlhttpPost.open("POST", "/rest/signupform/add", true);

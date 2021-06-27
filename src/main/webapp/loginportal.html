@@ -45,6 +45,9 @@
                             window.location.replace("/manager_portal_employees.html")
                         else if (body.role === 3)
                             window.location.replace("/municipality_portal.html")
+                        else {
+                            window.alert("email and/or password are wrong")
+                        }
                     }
                 };
                 httpr.open("POST", "/rest/account/login", true);
