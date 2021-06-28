@@ -1,5 +1,6 @@
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.util.Calendar;
 
 import diproj.signups.resources.tools.Hash;
 import diproj.signups.resources.tools.Queries;
@@ -53,6 +54,8 @@ public class Login {
                 String role = rs1.getString(1);
                 switch (role){
                     case "Field Engineer":
+                        setLastActive(connection, username);
+                        connection.close();
                         return 1;
                     case "Manager":
                         return 2;
@@ -60,10 +63,18 @@ public class Login {
                         return 3;
                 }
             }
+            connection.close();
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
-
         return 0;
+    }
+    public void setLastActive(Connection connection, String email) throws SQLException {
+        String date = Calendar.getInstance().getTime().toString();
+        PreparedStatement statement = connection.prepareStatement(Queries.query6);
+        statement.setString(1, date);
+        statement.setString(2, email);
+        statement.executeUpdate();
+        connection.close();
     }
 }
