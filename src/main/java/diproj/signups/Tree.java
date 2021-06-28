@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Tree {
     private int id;
-
     private int wlevel;
 
 

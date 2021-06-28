@@ -172,6 +172,7 @@ let locations = [
     Stroink]
 
 console.log(locations)
+
 function initMap() {
     let httpr = new XMLHttpRequest();
     httpr.onreadystatechange = function () {
@@ -195,7 +196,7 @@ function initMap() {
             document.getElementById('to').addEventListener('change', Changeloc);
 
             function setWaterlevels(text) {
-                for (let i = 0; i<text.length; i++) {
+                for (let i = 0; i < text.length; i++) {
                     let tree = text[i];
                     addMarker(coordsFromId(tree.id), tree.id, tree.wlevel)
                 }
@@ -203,9 +204,8 @@ function initMap() {
 
             function coordsFromId(id) {
                 for (let i = 0; i < locations.length; i++) {
-                    for (let j = 0; j<locations[i].length; j++)
+                    for (let j = 0; j < locations[i].length; j++)
                         if (locations[i][j].treeid === id) {
-                            console.log("hallo")
                             return {
                                 "lat": locations[i][j].lat,
                                 "lng": locations[i][j].lng
@@ -250,7 +250,7 @@ function initMap() {
 
 
                 const infowindow = new google.maps.InfoWindow({
-                    content: "<form>\n" +
+                    content: "<form target=\"useless\">\n" +
                         "  <label for=\"volume\">How much water?</label>\n" +
                         "  <select name=\"liters\" id=\"water\">\n" +
                         "    <option value=\"0\">0</option>\n" +
@@ -265,8 +265,9 @@ function initMap() {
                         "    <option value=\"90\">90</option>\n" +
                         "    <option value=\"100\">100</option>\n" +
                         "  </select>\n" +
-                       `<input type=\"submit\" onclick=\"water(${marker.id}, document.getElementById('water'))\" value=\"Submit\">\n` +
-                        " </form>\n",
+                        `<input type=\"submit\" onclick=\"water1(${marker.id}, document.getElementById('water').options[document.getElementById('water').selectedIndex].value)\" value=\"Submit\">\n` +
+                        " </form>\n" +
+                        "<iframe name=\"useless\" style=\"display:none\"></iframe>",
                     maxWidth: 300,
                 });
 
@@ -277,7 +278,6 @@ function initMap() {
 
 
             }
-
 
 
         }
@@ -316,22 +316,30 @@ function disable() {
 }
 
 
-function water(id, volume){
-console.log("water called");
-let XMLhttpPost = new XMLHttpRequest();
-XMLhttpPost.onreadystatechange = function () {
-if (this.readyState === 4 && this.status === 200) {
-if(this.response === true){
-alert('success')
- }
-}
-}
-XMLhttpPost.open("POST", "/rest/employee_portal_map/watering/water", true);
-XMLhttpPost.setRequestHeader("Content-type", "application/json");
-let jsonText = {
-"tree_id" : id,
-"wlevel" : volume
-}
-XMLhttpPost.send(JSON.stringify(jsonText));
+function water1(id, volume) {
+    console.log("id = " + id);
+    console.log("volume = " + volume);
+    console.log("water called");
+    let XMLhttpPost = new XMLHttpRequest();
+    XMLhttpPost.onreadystatechange = function () {
+
+        if (this.readyState === 4 && this.status === 200) {
+            console.log(this.response);
+            if (this.response === "true") {
+                alert('tree watered successfully');
+                window.location.reload();
+            }
+        }
+    }
+    let xid = parseInt(id);
+    let xvolume = parseInt(volume);
+    XMLhttpPost.open("POST", "/rest/employee_portal_map/watering/water", true);
+    XMLhttpPost.setRequestHeader("Content-type", "application/json");
+    let jsonText = {
+        "id": xid,
+        "wlevel": xvolume
+    }
+    XMLhttpPost.send(JSON.stringify(jsonText));
+    console.log("json verstuurd: " + JSON.stringify(jsonText));
 }
 
