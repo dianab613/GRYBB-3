@@ -251,6 +251,7 @@ function initMap() {
 
                 const infowindow = new google.maps.InfoWindow({
                     content: "<form target=\"useless\">\n" +
+                        "<p> I'm at "+ marker.waterlvl+ "% water level</p>\n" +
                         "  <label for=\"volume\">How much water?</label>\n" +
                         "  <select name=\"liters\" id=\"water\">\n" +
                         "    <option value=\"0\">0</option>\n" +
