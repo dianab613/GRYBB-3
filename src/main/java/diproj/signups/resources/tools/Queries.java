@@ -16,7 +16,7 @@ public class Queries {
             "FROM people p, employee e\n" +
             "WHERE p.person_id = e.person_id\n" +
             "ORDER BY p.person_id) AS test";
-    static final public String query5 = "INSERT INTO employee VALUES (?,'09:00-17:00', NULL, ?)";
+    static final public String query5 = "INSERT INTO employee VALUES (?,'09:00-17:00', ?, 'South')";
 
     static final public String query6 = "UPDATE employee SET last_active = ? WHERE person_id = (SELECT person_id FROM people WHERE email = ?)";
     static final public String query8 = "SELECT tree_id, water_level FROM tree ORDER BY tree_id";
